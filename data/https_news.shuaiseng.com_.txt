@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="webkit" name="renderer"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+  <title>
+   新闻
+  </title>
+  <!-- 使用url函数转换相关路径 -->
+  <link href="https://news.shuaiseng.com/usr/themes/default/normalize.css" rel="stylesheet"/>
+  <link href="https://news.shuaiseng.com/usr/themes/default/grid.css" rel="stylesheet"/>
+  <link href="https://news.shuaiseng.com/usr/themes/default/style.css" rel="stylesheet"/>
+  <!-- 通过自有函数输出HTML头部信息 -->
+  <meta content="由帅僧官方运营的新闻发布站。" name="description"/>
+  <meta content="news,shuaiseng,帅僧,新闻" name="keywords"/>
+  <meta content="Typecho 1.2.1" name="generator"/>
+  <meta content="default" name="template"/>
+  <link href="https://news.shuaiseng.com/index.php/action/xmlrpc" rel="pingback"/>
+  <link href="https://news.shuaiseng.com/index.php/action/xmlrpc?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://news.shuaiseng.com/index.php/action/xmlrpc?wlw" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://news.shuaiseng.com/index.php/feed/" rel="alternate" title="新闻 » RSS 2.0" type="application/rss+xml"/>
+  <link href="https://news.shuaiseng.com/index.php/feed/rss/" rel="alternate" title="新闻 » RSS 1.0" type="application/rdf+xml"/>
+  <link href="https://news.shuaiseng.com/index.php/feed/atom/" rel="alternate" title="新闻 » ATOM 1.0" type="application/atom+xml"/>
+ </head>
+ <body>
+  <header class="clearfix" id="header">
+   <div class="container">
+    <div class="row">
+     <div class="site-name col-mb-12 col-9">
+      <a href="https://news.shuaiseng.com/" id="logo">
+       新闻
+      </a>
+      <p class="description">
+       由帅僧官方运营的新闻发布站。
+      </p>
+     </div>
+     <div class="site-search col-3 kit-hidden-tb">
+      <form action="https://news.shuaiseng.com/" id="search" method="post" role="search">
+       <label class="sr-only" for="s">
+        搜索关键字
+       </label>
+       <input class="text" id="s" name="s" placeholder="输入关键字搜索" type="text"/>
+       <button class="submit" type="submit">
+        搜索
+       </button>
+      </form>
+     </div>
+     <div class="col-mb-12">
+      <nav class="clearfix" id="nav-menu" role="navigation">
+       <a class="current" href="https://news.shuaiseng.com/">
+        首页
+       </a>
+       <a href="https://news.shuaiseng.com/index.php/about.html" title="关于">
+        关于
+       </a>
+      </nav>
+     </div>
+    </div>
+    <!-- end .row -->
+   </div>
+  </header>
+  <!-- end #header -->
+  <div id="body">
+   <div class="container">
+    <div class="row">
+     <div class="col-mb-12 col-8" id="main" role="main">
+      <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+       <h2 class="post-title" itemprop="name headline">
+        <a href="https://news.shuaiseng.com/index.php/archives/5/" itemprop="url">
+         帅僧的全新logo（暂定版）现已启用
+        </a>
+       </h2>
+       <ul class="post-meta">
+        <li itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+         作者:
+         <a href="https://news.shuaiseng.com/index.php/author/1/" itemprop="name" rel="author">
+          帅僧官方
+         </a>
+        </li>
+        <li>
+         时间:
+         <time datetime="2025-08-20T21:14:55+08:00" itemprop="datePublished">
+          2025-08-20
+         </time>
+        </li>
+        <li>
+         分类:
+         <a href="https://news.shuaiseng.com/index.php/category/default/">
+          默认分类
+         </a>
+        </li>
+        <li itemprop="interactionCount">
+         <a href="https://news.shuaiseng.com/index.php/archives/5/#comments" itemprop="discussionUrl">
+          评论
+         </a>
+        </li>
+       </ul>
+       <div class="post-content" itemprop="articleBody">
+        <p>
+         查看我们的全新 Logo：
+         <br/>
+         <img alt="Logo 大图" src="https://static.shuaiseng.com.cn/logo.png" title="Logo 大图"/>
+         <br/>
+         <img alt="英文版 Logo" src="https://static.shuaiseng.com.cn/logo_en.png" title="英文版 Logo"/>
+         <br/>
+         <img alt="中文版 Logo" src="https://static.shuaiseng.com.cn/logo_zh.png" title="中文版 Logo"/>
+        </p>
+       </div>
+      </article>
+      <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+       <h2 class="post-title" itemprop="name headline">
+        <a href="https://news.shuaiseng.com/index.php/archives/4/" itemprop="url">
+         帅僧新闻官方 Telegram 频道现已上线
+        </a>
+       </h2>
+       <ul class="post-meta">
+        <li itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+         作者:
+         <a href="https://news.shuaiseng.com/index.php/author/1/" itemprop="name" rel="author">
+          帅僧官方
+         </a>
+        </li>
+        <li>
+         时间:
+         <time datetime="2025-01-24T19:12:40+08:00" itemprop="datePublished">
+          2025-01-24
+         </time>
+        </li>
+        <li>
+         分类:
+         <a href="https://news.shuaiseng.com/index.php/category/default/">
+          默认分类
+         </a>
+        </li>
+        <li itemprop="interactionCount">
+         <a href="https://news.shuaiseng.com/index.php/archives/4/#comments" itemprop="discussionUrl">
+          评论
+         </a>
+        </li>
+       </ul>
+       <div class="post-content" itemprop="articleBody">
+        <p>
+         欢迎在 Telegram 频道同步查收我们的最新消息！
+         <br/>
+         传送门：
+         <a href="https://t.me/shuaisengcom">
+          点击跳转
+         </a>
+        </p>
+       </div>
+      </article>
+      <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+       <h2 class="post-title" itemprop="name headline">
+        <a href="https://news.shuaiseng.com/index.php/archives/3/" itemprop="url">
+         帅僧官方新闻发布站现已上线
+        </a>
+       </h2>
+       <ul class="post-meta">
+        <li itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+         作者:
+         <a href="https://news.shuaiseng.com/index.php/author/1/" itemprop="name" rel="author">
+          帅僧官方
+         </a>
+        </li>
+        <li>
+         时间:
+         <time datetime="2024-08-22T12:18:26+08:00" itemprop="datePublished">
+          2024-08-22
+         </time>
+        </li>
+        <li>
+         分类:
+         <a href="https://news.shuaiseng.com/index.php/category/default/">
+          默认分类
+         </a>
+        </li>
+        <li itemprop="interactionCount">
+         <a href="https://news.shuaiseng.com/index.php/archives/3/#comments" itemprop="discussionUrl">
+          2 条评论
+         </a>
+        </li>
+       </ul>
+       <div class="post-content" itemprop="articleBody">
+        <p>
+         亲爱的帅僧用户您好，帅僧官方新闻发布站现已上线，欢迎持续关注本站，我们将持续发布帅僧相关的公告及官方资讯。
+        </p>
+       </div>
+      </article>
+     </div>
+     <!-- end #main-->
+     <div class="col-mb-12 col-offset-1 col-3 kit-hidden-tb" id="secondary" role="complementary">
+      <section class="widget">
+       <h3 class="widget-title">
+        最新文章
+       </h3>
+       <ul class="widget-list">
+        <li>
+         帅僧的全新logo（暂定版）现已启用
+        </li>
+        <li>
+         帅僧新闻官方 Telegram 频道现已上线
+        </li>
+        <li>
+         帅僧官方新闻发布站现已上线
+        </li>
+       </ul>
+      </section>
+      <section class="widget">
+       <h3 class="widget-title">
+        最近回复
+       </h3>
+       <ul class="widget-list">
+        <li>
+         <a href="https://news.shuaiseng.com/index.php/archives/3/comment-page-1#comment-5">
+          ゆうた ほそかわ
+         </a>
+         : なんて素晴らしいプロジェクトなんだ！ ハンサム・モンクは今どんな...
+        </li>
+        <li>
+         <a href="https://news.shuaiseng.com/index.php/archives/3/comment-page-1#comment-2">
+          Yuan Jhou Lyu
+         </a>
+         : 感謝 Shuaiseng 提供這麼好的平臺，希望早點發布正式版！
+        </li>
+       </ul>
+      </section>
+      <section class="widget">
+       <h3 class="widget-title">
+        分类
+       </h3>
+       <ul class="widget-list">
+        默认分类
+       </ul>
+      </section>
+      <section class="widget">
+       <h3 class="widget-title">
+        归档
+       </h3>
+       <ul class="widget-list">
+        <li>
+         August 2025
+        </li>
+        <li>
+         January 2025
+        </li>
+        <li>
+         August 2024
+        </li>
+       </ul>
+      </section>
+      <section class="widget">
+       <h3 class="widget-title">
+        其它
+       </h3>
+       <ul class="widget-list">
+        <li class="last">
+         <a href="https://news.shuaiseng.com/admin/login.php">
+          登录
+         </a>
+        </li>
+        <li>
+         文章 RSS
+        </li>
+        <li>
+         评论 RSS
+        </li>
+        <li>
+         Typecho
+        </li>
+       </ul>
+      </section>
+     </div>
+     <!-- end #sidebar -->
+    </div>
+    <!-- end .row -->
+   </div>
+  </div>
+  <!-- end #body -->
+  <footer id="footer" role="contentinfo">
+   © 2025
+   <a href="https://news.shuaiseng.com/">
+    新闻
+   </a>
+   .
+    由
+   <a href="https://typecho.org">
+    Typecho
+   </a>
+   强力驱动.
+  </footer>
+  <!-- end #footer -->
+ </body>
+</html>
