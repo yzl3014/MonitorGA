@@ -282,7 +282,7 @@ def compare_and_notify(url, dynamic=False, is_text=False):
     if first_run:
         snapshot_file.write_text(content, encoding="utf-8")
         message = f"📥📥 首次抓取内容: {url}\n时间: {timestamp}"
-        bot.send_message(chat_id=CHANNEL_ID, text=message)
+        bot.send_message(chat_id=ADMIN_USER_ID, text=message)
         logging.info(f"首次抓取: {url}")
     else:
         try:
