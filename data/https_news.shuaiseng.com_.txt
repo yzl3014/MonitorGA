@@ -67,6 +67,69 @@
      <div class="col-mb-12 col-8" id="main" role="main">
       <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
        <h2 class="post-title" itemprop="name headline">
+        <a href="https://news.shuaiseng.com/index.php/archives/6/" itemprop="url">
+         开学摆烂党速救！这个效率神器公测了，现在注册直接锁定老用户福利！
+        </a>
+       </h2>
+       <ul class="post-meta">
+        <li itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+         作者:
+         <a href="https://news.shuaiseng.com/index.php/author/1/" itemprop="name" rel="author">
+          帅僧官方
+         </a>
+        </li>
+        <li>
+         时间:
+         <time datetime="2025-08-29T19:44:25+08:00" itemprop="datePublished">
+          2025-08-29
+         </time>
+        </li>
+        <li>
+         分类:
+         <a href="https://news.shuaiseng.com/index.php/category/default/">
+          默认分类
+         </a>
+        </li>
+        <li itemprop="interactionCount">
+         <a href="https://news.shuaiseng.com/index.php/archives/6/#comments" itemprop="discussionUrl">
+          评论
+         </a>
+        </li>
+       </ul>
+       <div class="post-content" itemprop="articleBody">
+        <p>
+         暑假躺平太久，一想到开学就慌到窒息？😫
+        </p>
+        <p>
+         别慌！你的「开学效率救星」已上线——帅僧Progress 正式开放公测！
+        </p>
+        <p>
+         它不只是个工具，更是你的开学开挂神器：
+        </p>
+        <ul>
+         <li>
+          任务管理+番茄钟：专治拖延症，学习节奏牢牢抓
+         </li>
+         <li>
+          笔记存放+RSS订阅：知识点、干货全收纳，不用再翻遍手机
+         </li>
+         <li>
+          开放社区：和同频小伙伴聊提效、唠日常，学习不孤单
+         </li>
+        </ul>
+        <p>
+         从摆烂到高效，只差一个它！现在注册，直接锁定「老用户」身份，开学先人一步～
+        </p>
+        <p>
+         👉 立即注册：
+         <a href="https://progress.shuaiseng.cn">
+          progress.shuaiseng.cn
+         </a>
+        </p>
+       </div>
+      </article>
+      <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+       <h2 class="post-title" itemprop="name headline">
         <a href="https://news.shuaiseng.com/index.php/archives/5/" itemprop="url">
          帅僧的全新logo（暂定版）现已启用
         </a>
@@ -195,6 +258,9 @@
         最新文章
        </h3>
        <ul class="widget-list">
+        <li>
+         开学摆烂党速救！这个效率神器公测了，现在注册直接锁定老用户福利！
+        </li>
         <li>
          帅僧的全新logo（暂定版）现已启用
         </li>
