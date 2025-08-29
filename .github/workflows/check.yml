@@ -1,0 +1,63 @@
+name: MonitorGA Task
+
+on:
+  schedule:
+    - cron: "0 0/2 * * *"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout 仓库
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false  # 关闭默认 token，使用 PAT
+
+      # 2️⃣ 设置 Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      # 3️⃣ 安装依赖
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install playwright
+          playwright install chromium
+          pip install python-telegram-bot pillow requests
+
+      # 4️⃣ 运行网站检查脚本
+      - name: Run website checker
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+          TELEGRAM_ADMIN_ID: ${{ secrets.TELEGRAM_ADMIN_ID }}
+        run: python check_sites.py
+
+      # 5️⃣ 上传日志 artifact
+      - name: Upload log
+        uses: actions/upload-artifact@v4
+        with:
+          name: changes-log
+          path: changes.log
+
+      # 6️⃣ Commit & push snapshots 使用 PAT
+      - name: Commit snapshots
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # 设置 remote URL 使用 PAT
+          git remote set-url origin https://$PAT_TOKEN@github.com/${{ github.repository }}.git
+
+          git add data/
+          git diff --cached --quiet || git commit -m "Update snapshots [skip ci]"
+
+          # Push 到 main 分支
+          git push origin HEAD:main
