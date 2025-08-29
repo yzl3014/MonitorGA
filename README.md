@@ -20,7 +20,7 @@
 
 ### 3. 配置 GitHub Secrets
 
-首先创建一个 PAT (Personal Access Token), 范围勾选`repo`, 这个 Token 将在每次监测完毕后 Actions 向你的仓库提交网页变动日志时使用
+首先创建一个 PAT (Personal Access Token)，范围勾选`repo`，这个 Token 将在每次监测完毕后 Actions 向你的仓库提交网页变动日志时使用。[New personal access token (classic)](https://github.com/settings/tokens/new)
 
 在 Fork 的仓库中，进入 Settings → Secrets → Actions → Repository secrets，添加以下 secrets：
 
