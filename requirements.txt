@@ -5,3 +5,4 @@ Pillow
 bs4
 html5lib
 matplotlib
+pygments

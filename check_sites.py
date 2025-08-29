@@ -5,11 +5,17 @@ from pathlib import Path
 from telegram import Bot
 from playwright.sync_api import sync_playwright
 import requests
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageColor
 import logging
 from bs4 import BeautifulSoup
 import html
-from urllib.parse import urlparse  # 添加导入用于解析URL
+from urllib.parse import urlparse
+from pygments import highlight
+from pygments.lexers import get_lexer_for_filename, guess_lexer, TextLexer
+from pygments.formatters import ImageFormatter
+from pygments.style import Style
+from pygments.token import Token
+import tempfile
 
 # === 配置 ===
 BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
@@ -23,6 +29,26 @@ DATA_DIR.mkdir(exist_ok=True)
 LOG_FILE.touch(exist_ok=True)
 
 bot = Bot(token=BOT_TOKEN)
+
+
+# === 自定义VSCode风格 ===
+class VSCodeStyle(Style):
+    """
+    仿VSCode风格的语法高亮样式
+    """
+
+    styles = {
+        Token: "#D4D4D4",  # 默认文本颜色
+        Token.Comment: "#6A9955",  # 注释 - 绿色
+        Token.Keyword: "#C586C0",  # 关键字 - 紫色
+        Token.String: "#CE9178",  # 字符串 - 棕色
+        Token.Name: "#D4D4D4",  # 变量名 - 白色
+        Token.Name.Function: "#DCDCAA",  # 函数名 - 米黄色
+        Token.Name.Class: "#4EC9B0",  # 类名 - 青蓝色
+        Token.Number: "#B5CEA8",  # 数字 - 浅绿色
+        Token.Operator: "#D4D4D4",  # 操作符 - 白色
+        Token.Punctuation: "#D4D4D4",  # 标点 - 白色
+    }
 
 
 # === 工具函数 ===
@@ -113,6 +139,42 @@ def format_html_content(html_content):
         return html_content  # 失败时返回原始内容
 
 
+def highlight_code(code, filename="file.py"):
+    """
+    使用Pygments对代码进行语法高亮
+    """
+    try:
+        # 尝试根据文件名猜测语言
+        try:
+            lexer = get_lexer_for_filename(filename)
+        except:
+            # 如果失败，尝试根据内容猜测语言
+            try:
+                lexer = guess_lexer(code)
+            except:
+                # 如果还是失败，使用纯文本lexer
+                lexer = TextLexer()
+
+        # 创建临时文件来保存高亮后的图像
+        with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as temp_file:
+            # 使用自定义的VSCode样式
+            formatter = ImageFormatter(
+                style=VSCodeStyle,
+                line_numbers=True,  # 显示行号
+                font_name="DejaVu Sans Mono",  # 使用等宽字体
+                font_size=14,
+                line_number_bg="#2B2B2B",  # 行号背景色
+                line_number_fg="#6E7681",  # 行号前景色
+                image_format="png",
+            )
+
+            highlight(code, lexer, formatter, temp_file.name)
+            return temp_file.name
+    except Exception as e:
+        logging.error(f"代码高亮失败: {e}")
+        return None
+
+
 def wrap_line(line, font, max_width):
     """将长行拆分为多行以适应最大宽度"""
     words = []
@@ -165,7 +227,7 @@ def diff_to_image(
     processed_lines = []
 
     # 设置左右边距
-    left_margin = 10
+    left_margin = 50  # 增加左边距以容纳行号
     right_margin = 10
     max_content_width = max_width - left_margin - right_margin
 
@@ -187,7 +249,7 @@ def diff_to_image(
     if font is None:
         try:
             # 尝试使用常见的系统字体作为回退
-            fallback_fonts = ["Arial.ttf", "arial.ttf", "DejaVuSans.ttf"]
+            fallback_fonts = ["DejaVuSansMono.ttf", "Consolas.ttf", "Courier New.ttf"]
             for font_name in fallback_fonts:
                 try:
                     font = ImageFont.truetype(font_name, font_size)
@@ -210,7 +272,12 @@ def diff_to_image(
     ) + line_height_pad
 
     # 处理每一行，进行换行
+    line_numbers = []
+    line_number_width = 0
+    line_count = 0
+
     for line in diff_text.splitlines():
+        line_count += 1
         # 测量行宽度
         bbox = font.getbbox(line) if hasattr(font, "getbbox") else font.getsize(line)
         line_width = bbox[2] - bbox[0] if hasattr(font, "getbbox") else bbox[0]
@@ -219,8 +286,20 @@ def diff_to_image(
         if line_width > max_content_width:
             wrapped_lines = wrap_line(line, font, max_content_width)
             processed_lines.extend(wrapped_lines)
+            line_numbers.extend([line_count] + [""] * (len(wrapped_lines) - 1))
         else:
             processed_lines.append(line)
+            line_numbers.append(line_count)
+
+    # 计算行号区域的宽度
+    if line_numbers:
+        max_line_num = max([num for num in line_numbers if num != ""])
+        line_number_width = (
+            font.getbbox(str(max_line_num))[2] - font.getbbox(str(max_line_num))[0]
+            if hasattr(font, "getbbox")
+            else font.getsize(str(max_line_num))[0]
+        )
+        line_number_width += 20  # 增加一些边距
 
     # 计算图片高度和宽度
     height = min((line_height * len(processed_lines)) + 20, 2000)
@@ -233,27 +312,53 @@ def diff_to_image(
         if width > max_line_width:
             max_line_width = width
 
-    # 动态宽度（考虑边距）
-    width = min(max(max_line_width + left_margin + right_margin, min_width), max_width)
+    # 动态宽度（考虑边距和行号区域）
+    width = min(
+        max(max_line_width + left_margin + right_margin + line_number_width, min_width),
+        max_width,
+    )
 
     # 创建图片
-    img = Image.new("RGB", (width, height), color="white")
+    img = Image.new("RGB", (width, height), color="#1E1E1E")  # VSCode风格的深色背景
     draw = ImageDraw.Draw(img)
+
+    # 绘制行号背景
+    draw.rectangle([(0, 0), (left_margin, height)], fill="#2B2B2B")
+
+    # 绘制行号
+    for i, line_num in enumerate(line_numbers):
+        if line_num != "":
+            y_pos = 10 + i * line_height
+            # 行号右对齐
+            num_str = str(line_num)
+            bbox = (
+                font.getbbox(num_str)
+                if hasattr(font, "getbbox")
+                else font.getsize(num_str)
+            )
+            num_width = bbox[2] - bbox[0] if hasattr(font, "getbbox") else bbox[0]
+            x_pos = left_margin - num_width - 10
+            draw.text((x_pos, y_pos), num_str, font=font, fill="#6E7681")  # 行号颜色
 
     # 绘制文本
     y = 10
-    for line in processed_lines:
+    for i, line in enumerate(processed_lines):
         # 确定行颜色
         if line.startswith("+"):
-            fill = (0, 128, 0)
+            fill = (155, 185, 85)  # 柔和的绿色
         elif line.startswith("-"):
-            fill = (255, 0, 0)
+            fill = (224, 108, 117)  # 柔和的红色
         elif line.startswith("@"):
-            fill = (0, 0, 255)
+            fill = (86, 156, 214)  # 蓝色
         else:
-            fill = (0, 0, 0)
+            fill = (212, 212, 212)  # 浅灰色
 
-        draw.text((left_margin, y), line, font=font, fill=fill)
+        # 移除diff标记以获取纯净的代码
+        clean_line = line
+        if line.startswith(("+", "-", "@", " ")):
+            clean_line = line[1:] if len(line) > 1 else line
+
+        draw.text((left_margin, y), clean_line, font=font, fill=fill)
         y += line_height
 
     img.save(output_file)
@@ -282,7 +387,7 @@ def compare_and_notify(url, dynamic=False, is_text=False):
     if first_run:
         snapshot_file.write_text(content, encoding="utf-8")
         message = f"📥📥 首次抓取内容: {url}\n时间: {timestamp}"
-        bot.send_message(chat_id=ADMIN_USER_ID, text=message)
+        bot.send_message(chat_id=CHANNEL_ID, text=message)
         logging.info(f"首次抓取: {url}")
     else:
         try:
@@ -294,6 +399,28 @@ def compare_and_notify(url, dynamic=False, is_text=False):
             old_content = normalize_text(old_content)
 
             if old_content != content:
+                # 尝试使用Pygments生成带语法高亮的差异图片
+                try:
+                    # 根据URL猜测文件类型
+                    if "." in url:
+                        file_ext = url.split(".")[-1]
+                        if len(file_ext) > 5:  # 避免过长的扩展名
+                            file_ext = "txt"
+                    else:
+                        file_ext = "txt"
+
+                    # 生成高亮图片
+                    highlighted_old = highlight_code(old_content, f"old.{file_ext}")
+                    highlighted_new = highlight_code(content, f"new.{file_ext}")
+
+                    if highlighted_old and highlighted_new:
+                        # 如果高亮成功，使用高亮后的图片
+                        # 这里可以添加代码将两个图片合并为对比图片
+                        # 暂时使用原有的diff文本作为备选
+                        pass
+                except Exception as e:
+                    logging.warning(f"代码高亮失败，使用文本diff: {e}")
+
                 # 生成更精确的diff
                 diff_lines = list(
                     difflib.unified_diff(
