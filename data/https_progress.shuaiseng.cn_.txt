@@ -1,0 +1,516 @@
+<html lang="zh-CN">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   帅僧Progress - 任务管理与番茄钟
+  </title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <!-- Google Fonts - Inter 用于极简设计 -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+   /* 基础样式 */ body { font-family: 'Inter', sans-serif; color: #333; background-color: #fafafa; line-height: 1.6; } /* 自定义工具类 */ .text-muted-light { color: #6c757d; } .section-padding { padding: 8rem 0; } .card-hover { transition: all 0.3s ease; } .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); } /* 平滑滚动 */ html { scroll-behavior: smooth; } /* 进度条动画 */ @keyframes progress { from { width: 0; } to { width: 100%; } } .animate-progress { animation: progress 1.5s ease-out forwards; }
+  </style>
+ </head>
+ <body>
+  <!-- 导航栏 -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+   <div class="container">
+    <a class="navbar-brand" href="#home">
+     <i class="fa fa-check-square-o text-primary me-2">
+     </i>
+     帅僧Progress
+    </a>
+    <button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+     <span class="navbar-toggler-icon">
+     </span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+     <ul class="navbar-nav gap-4">
+      <li class="nav-item">
+       <a class="nav-link" href="#features">
+        功能特点
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="#how-it-works">
+        使用方法
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="#testimonials">
+        用户评价
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link btn btn-primary text-white" href="/login.php">
+        立即开始
+       </a>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </nav>
+  <!-- 首页区域 -->
+  <section class="section-padding bg-white" id="home">
+   <div class="container">
+    <div class="row align-items-center">
+     <div class="col-lg-6 mb-8 mb-lg-0">
+      <h1 class="display-4 fw-light mb-4">
+       最大限度地提高你的效率
+      </h1>
+      <h2 class="h3 fw-normal text-muted-light mb-6">
+       集任务管理与番茄钟于一体的极简应用
+      </h2>
+      <p class="text-muted-light mb-8">
+       帅僧Progress帮助你组织工作、高效管理时间，专注于最重要的事情。
+      </p>
+      <div class="d-flex flex-wrap gap-4">
+       <a class="btn btn-primary px-6 py-3 text-white" href="#download">
+        <i class="fa fa-download me-2">
+        </i>
+        使用应用
+       </a>
+       <a class="btn btn-outline-primary px-6 py-3" href="#features">
+        了解更多
+       </a>
+      </div>
+     </div>
+     <div class="col-lg-6">
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- 功能特点区域 -->
+  <section class="section-padding bg-light" id="features">
+   <div class="container">
+    <div class="text-center mb-16">
+     <h2 class="display-5 fw-light mb-4">
+      强大功能
+     </h2>
+     <p class="text-muted-light max-w-2xl mx-auto">
+      满足你高效管理任务和时间的一切需求
+     </p>
+    </div>
+    <div class="row gap-8">
+     <!-- 任务管理功能 -->
+     <div class="col-md-6 col-lg-5 mx-auto">
+      <div class="bg-white p-8 rounded-xl shadow-sm card-hover">
+       <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+        <i class="fa fa-tasks text-primary text-2xl">
+        </i>
+       </div>
+       <h3 class="h4 fw-medium mb-4">
+        任务管理
+       </h3>
+       <ul class="space-y-3 text-muted-light">
+        <li class="d-flex align-items-start">
+         <i class="fa fa-check text-primary mt-1 me-3">
+         </i>
+         <span>
+          创建并组织带有优先级的任务
+         </span>
+        </li>
+        <li class="d-flex align-items-start">
+         <i class="fa fa-check text-primary mt-1 me-3">
+         </i>
+         <span>
+          设置截止日期并接收提醒
+         </span>
+        </li>
+        <li class="d-flex align-items-start">
+         <i class="fa fa-check text-primary mt-1 me-3">
+         </i>
+         <span>
+          通过视觉指示器跟踪进度
+         </span>
+        </li>
+        <li class="d-flex align-items-start">
+         <i class="fa fa-check text-primary mt-1 me-3">
+         </i>
+         <span>
+          将任务组织到项目和分类中
+         </span>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <!-- 番茄钟功能 -->
+     <div class="col-md-6 col-lg-5 mx-auto">
+      <div class="bg-white p-8 rounded-xl shadow-sm card-hover">
+       <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+        <i class="fa fa-clock-o text-primary text-2xl">
+        </i>
+       </div>
+       <h3 class="h4 fw-medium mb-4">
+        番茄钟
+       </h3>
+       <ul class="space-y-3 text-muted-light">
+        <li class="d-flex align-items-start">
+         <i class="fa fa-check text-primary mt-1 me-3">
+         </i>
+         <span>
+          可自定义时长的专注时段
+         </span>
+        </li>
+        <li class="d-flex align-items-start">
+         <i class="fa fa-check text-primary mt-1 me-3">
+         </i>
+         <span>
+          自动的短休息和长休息
+         </span>
+        </li>
+        <li class="d-flex align-items-start">
+         <i class="fa fa-check text-primary mt-1 me-3">
+         </i>
+         <span>
+          跟踪每日专注时间和生产力
+         </span>
+        </li>
+        <li class="d-flex align-items-start">
+         <i class="fa fa-check text-primary mt-1 me-3">
+         </i>
+         <span>
+          可自定义的通知和提示音
+         </span>
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- 使用方法区域 -->
+  <section class="section-padding bg-white" id="how-it-works">
+   <div class="container">
+    <div class="text-center mb-16">
+     <h2 class="display-5 fw-light mb-4">
+      使用方法
+     </h2>
+     <p class="text-muted-light max-w-2xl mx-auto">
+      提升生产力的简单步骤
+     </p>
+    </div>
+    <div class="row gap-8">
+     <div class="col-md-4 text-center">
+      <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+       <span class="text-primary fw-bold text-xl">
+        1
+       </span>
+      </div>
+      <h3 class="h5 fw-medium mb-3">
+       创建你的任务
+      </h3>
+      <p class="text-muted-light">
+       添加带有优先级和截止日期的任务，保持条理清晰。
+      </p>
+     </div>
+     <div class="col-md-4 text-center">
+      <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+       <span class="text-primary fw-bold text-xl">
+        2
+       </span>
+      </div>
+      <h3 class="h5 fw-medium mb-3">
+       开始专注时段
+      </h3>
+      <p class="text-muted-light">
+       使用番茄钟在专注间隔中工作，并适当休息。
+      </p>
+     </div>
+     <div class="col-md-4 text-center">
+      <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+       <span class="text-primary fw-bold text-xl">
+        3
+       </span>
+      </div>
+      <h3 class="h5 fw-medium mb-3">
+       跟踪你的进度
+      </h3>
+      <p class="text-muted-light">
+       监控已完成的任务和专注时间，提高工作效率。
+      </p>
+     </div>
+    </div>
+    <div class="mt-16 bg-light rounded-2xl p-8">
+     <div class="row align-items-center">
+      <div class="col-lg-6 mb-8 mb-lg-0">
+       <h3 class="h4 fw-medium mb-4">
+        一目了然的生产力
+       </h3>
+       <p class="text-muted-light mb-6">
+        通过直观的可视化图表跟踪你的每日、每周和每月进度。
+       </p>
+       <div class="mb-6">
+        <div class="d-flex justify-content-between mb-2">
+         <span class="text-sm">
+          每周专注时间
+         </span>
+         <span class="text-sm fw-medium">
+          7.5小时 / 10小时
+         </span>
+        </div>
+        <div class="progress h-2 bg-gray-200 rounded-full overflow-hidden">
+         <div class="progress-bar bg-primary animate-progress" style="width: 75%">
+         </div>
+        </div>
+       </div>
+       <div>
+        <div class="d-flex justify-content-between mb-2">
+         <span class="text-sm">
+          已完成任务
+         </span>
+         <span class="text-sm fw-medium">
+          18 / 24
+         </span>
+        </div>
+        <div class="progress h-2 bg-gray-200 rounded-full overflow-hidden">
+         <div class="progress-bar bg-primary animate-progress" style="width: 75%">
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="col-lg-6">
+       <img alt="进度仪表盘" class="w-100 h-auto rounded-xl shadow-sm" src="https://picsum.photos/id/180/800/500"/>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- 用户评价区域 -->
+  <section class="section-padding bg-light" id="testimonials">
+   <div class="container">
+    <div class="text-center mb-16">
+     <h2 class="display-5 fw-light mb-4">
+      用户评价
+     </h2>
+     <p class="text-muted-light max-w-2xl mx-auto">
+      来自已经提升生产力的用户反馈
+     </p>
+    </div>
+    <div class="row gap-8">
+     <div class="col-md-4">
+      <div class="bg-white p-6 rounded-xl shadow-sm">
+       <div class="text-primary mb-4">
+        <i class="fa fa-star">
+        </i>
+        <i class="fa fa-star">
+        </i>
+        <i class="fa fa-star">
+        </i>
+        <i class="fa fa-star">
+        </i>
+        <i class="fa fa-star">
+        </i>
+       </div>
+       <p class="text-muted-light mb-6">
+        "帅僧Progress彻底改变了我的工作方式。任务管理和番茄钟的结合让我一整天都能保持专注和高效。"
+       </p>
+       <div class="d-flex align-items-center">
+        <div>
+         <h5 class="fw-medium">
+          李明
+         </h5>
+         <p class="text-sm text-muted-light">
+          自由设计师
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="col-md-4">
+      <div class="bg-white p-6 rounded-xl shadow-sm">
+       <div class="text-primary mb-4">
+        <i class="fa fa-star">
+        </i>
+        <i class="fa fa-star">
+        </i>
+        <i class="fa fa-star">
+        </i>
+        <i class="fa fa-star">
+        </i>
+        <i class="fa fa-star">
+        </i>
+       </div>
+       <p class="text-muted-light mb-6">
+        "作为学生，我总是难以集中注意力。这个应用帮助我有效地管理学习时间。简洁的界面也是一大亮点！"
+       </p>
+       <div class="d-flex align-items-center">
+        <div>
+         <h5 class="fw-medium">
+          王芳
+         </h5>
+         <p class="text-sm text-muted-light">
+          大学生
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="col-md-4">
+      <div class="bg-white p-6 rounded-xl shadow-sm">
+       <div class="text-primary mb-4">
+        <i class="fa fa-star">
+        </i>
+        <i class="fa fa-star">
+        </i>
+        <i class="fa fa-star">
+        </i>
+        <i class="fa fa-star">
+        </i>
+        <i class="fa fa-star-half-o">
+        </i>
+       </div>
+       <p class="text-muted-light mb-6">
+        "我尝试过很多生产力应用，但帅僧Progress是我坚持使用下来的一个。简单、直观且高效——正是我所需要的。"
+       </p>
+       <div class="d-flex align-items-center">
+        <div>
+         <h5 class="fw-medium">
+          张伟
+         </h5>
+         <p class="text-sm text-muted-light">
+          市场经理
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- 下载区域 -->
+  <section class="section-padding bg-white" id="download">
+   <div class="container">
+    <div class="max-w-3xl mx-auto text-center">
+     <h2 class="display-5 fw-light mb-4">
+      开始你的生产力之旅
+     </h2>
+     <p class="text-muted-light mb-8">
+      帅僧Progress多样的使用方式，改变你的工作和时间管理方式。
+     </p>
+     <div class="d-flex flex-wrap justify-center gap-4 mb-12">
+      <a class="btn btn-dark px-6 py-3 d-flex align-items-center text-white" href="#">
+       <i class="fa faandroid text-2xl me-3">
+       </i>
+       <div class="text-left">
+        <div class="text-xs">
+         使用于
+        </div>
+        <div>
+         Android
+        </div>
+       </div>
+      </a>
+      <a class="btn btn-dark px-6 py-3 d-flex align-items-center text-white" href="login.php">
+       <i class="fal fa-phone-laptop">
+       </i>
+       <div class="text-left">
+        <div class="text-xs">
+         使用于
+        </div>
+        <div>
+         网页
+        </div>
+       </div>
+      </a>
+     </div>
+     <div class="bg-light p-6 rounded-xl inline-block">
+      <p class="text-muted-light mb-0">
+       <i class="fa fa-info-circle text-primary me-2">
+       </i>
+       支持多端账号通用
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- 页脚 -->
+  <footer class="bg-gray-50 py-12 border-t">
+   <div class="container">
+    <div class="row">
+     <div class="col-md-6 mb-8 mb-md-0">
+      <div class="d-flex align-items-center mb-4">
+       <i class="fa fa-check-square-o text-primary me-2 text-xl">
+       </i>
+       <span class="h5 fw-medium">
+        帅僧Progress
+       </span>
+      </div>
+      <p class="text-muted-light mb-4">
+       极简主义的任务管理与番茄钟应用，帮助你提高生产力，专注于重要的事情。
+      </p>
+      <div class="d-flex gap-4">
+       <a class="text-muted-light hover:text-primary transition-colors" href="#">
+        <i class="fa fa-weibo">
+        </i>
+       </a>
+       <a class="text-muted-light hover:text-primary transition-colors" href="#">
+        <i class="fa fa-wechat">
+        </i>
+       </a>
+       <a class="text-muted-light hover:text-primary transition-colors" href="#">
+        <i class="fa fa-github">
+        </i>
+       </a>
+      </div>
+     </div>
+     <div class="col-md-3 mb-8 mb-md-0">
+      <h5 class="fw-medium mb-4">
+       快速链接
+      </h5>
+      <ul class="list-unstyled space-y-2">
+       <li>
+        功能特点
+       </li>
+       <li>
+        使用方法
+       </li>
+       <li>
+        用户评价
+       </li>
+       <li>
+        使用应用
+       </li>
+      </ul>
+     </div>
+     <div class="col-md-3">
+      <h5 class="fw-medium mb-4">
+       联系我们
+      </h5>
+      <ul class="list-unstyled space-y-2">
+       <li class="d-flex align-items-center">
+        <i class="fa fa-envelope text-primary me-3">
+        </i>
+        <a class="text-muted-light hover:text-primary transition-colors" href="mailto:contact@shuaiseng.com">
+         contact@shuaiseng.com
+        </a>
+       </li>
+       <li class="d-flex align-items-center">
+        <i class="fa fa-globe text-primary me-3">
+        </i>
+        <a class="text-muted-light hover:text-primary transition-colors" href="https://shuaiseng.com">
+         shuaiseng.com
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="mt-12 pt-8 border-t text-center text-muted-light text-sm">
+     <p>
+      © 2025 帅僧Progress. 保留所有权利。
+     </p>
+    </div>
+   </div>
+  </footer>
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script>
+   // 页面滚动时导航栏样式变化 window.addEventListener('scroll', function() { const navbar = document.querySelector('.navbar'); if (window.scrollY > 50) { navbar.classList.add('shadow'); navbar.classList.remove('shadow-sm'); } else { navbar.classList.remove('shadow'); navbar.classList.add('shadow-sm'); } }); // 导航栏链接点击后关闭移动菜单 document.querySelectorAll('.nav-link').forEach(link => { link.addEventListener('click', function() { const navbarCollapse = document.getElementById('navbarNav'); if (navbarCollapse.classList.contains('show')) { const toggler = document.querySelector('.navbar-toggler'); toggler.click(); } }); });
+  </script>
+ </body>
+</html>
