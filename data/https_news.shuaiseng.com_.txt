@@ -21,7 +21,7 @@
   <link href="https://news.shuaiseng.com/usr/themes/beardocs/assets/plugins/element-ui/index.min.css" rel="stylesheet"/>
   <link href="https://news.shuaiseng.com/usr/themes/beardocs/assets/plugins/fancybox/fancybox.min.css" rel="stylesheet"/>
   <link href="https://news.shuaiseng.com/usr/themes/beardocs/assets/plugins/menutree/menutree.min.css?v=1" rel="stylesheet"/>
-  <link href="https://news.shuaiseng.com/usr/themes/beardocs/assets/plugins/codehightlight/styles/" rel="stylesheet"/>
+  <link href="https://news.shuaiseng.com/usr/themes/beardocs/assets/plugins/codehightlight/styles/BlackMac.css" rel="stylesheet"/>
   <script src="https://news.shuaiseng.com/usr/themes/beardocs/assets/plugins/jquery/jquery.min.js">
   </script>
   <script src="https://news.shuaiseng.com/usr/themes/beardocs/assets/js/uikit.js">
@@ -32,6 +32,9 @@
   <script>
    window.searchApi = "https://news.shuaiseng.com/index.php/bd-search";
   </script>
+  <style>
+   header{ background: linear-gradient(60deg, #1e73be 0%, #44d822 100%); }
+  </style>
   <script>
    (function () { window.TypechoComment = { dom : function (id) { return document.getElementById(id); }, create : function (tag, attr) { var el = document.createElement(tag); for (var key in attr) { el.setAttribute(key, attr[key]); } return el; }, reply : function (cid, coid) { var comment = this.dom(cid), parent = comment.parentNode, response = this.dom('respond-post-4'), input = this.dom('comment-parent'), form = 'form' == response.tagName ? response : response.getElementsByTagName('form')[0], textarea = response.getElementsByTagName('textarea')[0]; if (null == input) { input = this.create('input', { 'type' : 'hidden', 'name' : 'parent', 'id' : 'comment-parent' }); form.appendChild(input); } input.setAttribute('value', coid); if (null == this.dom('comment-form-place-holder')) { var holder = this.create('div', { 'id' : 'comment-form-place-holder' }); response.parentNode.insertBefore(holder, response); } //comment.appendChild(response); comment.insertAdjacentElement("afterend",response); this.dom('cancel-comment-reply-link').style.display = ''; if (null != textarea && 'text' == textarea.name) { textarea.focus(); } return false; }, cancelReply : function () { var response = this.dom('respond-post-4'), holder = this.dom('comment-form-place-holder'), input = this.dom('comment-parent'); if (null != input) { input.parentNode.removeChild(input); } if (null == holder) { return true; } this.dom('cancel-comment-reply-link').style.display = 'none'; holder.parentNode.insertBefore(response, holder); return false; } }; })();
   </script>
@@ -149,7 +152,7 @@
    <div class="uk-section uk-section-small uk-section-hero uk-position-relative uk-scrollspy-inview uk-animation-slide-bottom-medium" data-uk-scrollspy="cls: uk-animation-slide-bottom-medium; repeat: false" style="">
     <div class="uk-container">
      <h1 class="uk-text-center uk-margin-remove-top">
-      有什么可以帮助到您的?
+      帅僧官方的新闻站点
      </h1>
      <div class="hero-search uk-margin-bottom">
       <div class="uk-position-relative">
@@ -194,13 +197,126 @@
         </div>
         <div class="bdnewui_index_item-header-content">
          <h3 class="bdnewui_index_category-name">
-          默认分类
+          公告
          </h3>
          <span class="bdnewui_index_category-desc">
-          只是一个默认分类
+          帅僧官方发布的权威公告
          </span>
          <span class="bdnewui_index_article-count">
-          6篇文章
+          3篇文章
+         </span>
+        </div>
+       </div>
+       <div class="bdnewui_index_articles-panel">
+        <ul class="bdnewui_index_article-list">
+         <li>
+          帅僧的全新logo（暂定版）现已启用
+         </li>
+         <li>
+          帅僧新闻官方 Telegram 频道现已上线
+         </li>
+         <li>
+          帅僧官方新闻发布站现已上线
+         </li>
+        </ul>
+        <a class="bdnewui_index_view-all-btn" href="https://news.shuaiseng.com/index.php/category/gg/">
+         查看全部
+        </a>
+       </div>
+      </div>
+     </div>
+     <div class="bdnewui_index_category-item">
+      <div class="bdnewui_index_category-content">
+       <div class="bdnewui_index_item-header">
+        <div class="bdnewui_index_item-header-icon">
+         <span class="uk-icon" uk-icon="icon: cog; ratio: 1.8">
+          <svg data-svg="cog" height="36" viewbox="0 0 20 20" width="36" xmlns="http://www.w3.org/2000/svg">
+           <circle cx="9.997" cy="10" fill="none" r="3.31" stroke="#000">
+           </circle>
+           <path d="M18.488,12.285 L16.205,16.237 C15.322,15.496 14.185,15.281 13.303,15.791 C12.428,16.289 12.047,17.373 12.246,18.5 L7.735,18.5 C7.938,17.374 7.553,16.299 6.684,15.791 C5.801,15.27 4.655,15.492 3.773,16.237 L1.5,12.285 C2.573,11.871 3.317,10.999 3.317,9.991 C3.305,8.98 2.573,8.121 1.5,7.716 L3.765,3.784 C4.645,4.516 5.794,4.738 6.687,4.232 C7.555,3.722 7.939,2.637 7.735,1.5 L12.263,1.5 C12.072,2.637 12.441,3.71 13.314,4.22 C14.206,4.73 15.343,4.516 16.225,3.794 L18.487,7.714 C17.404,8.117 16.661,8.988 16.67,10.009 C16.672,11.018 17.415,11.88 18.488,12.285 L18.488,12.285 Z" fill="none" stroke="#000">
+           </path>
+          </svg>
+         </span>
+        </div>
+        <div class="bdnewui_index_item-header-content">
+         <h3 class="bdnewui_index_category-name">
+          新闻
+         </h3>
+         <span class="bdnewui_index_category-desc">
+          帅僧官方发布的宣传新闻
+         </span>
+         <span class="bdnewui_index_article-count">
+          1篇文章
+         </span>
+        </div>
+       </div>
+       <div class="bdnewui_index_articles-panel">
+        <ul class="bdnewui_index_article-list">
+         开学摆烂党速救！这个效率神器公测了，现在注册直接锁定老用户福利！
+        </ul>
+        <a class="bdnewui_index_view-all-btn" href="https://news.shuaiseng.com/index.php/category/xinwen/">
+         查看全部
+        </a>
+       </div>
+      </div>
+     </div>
+     <div class="bdnewui_index_category-item">
+      <div class="bdnewui_index_category-content">
+       <div class="bdnewui_index_item-header">
+        <div class="bdnewui_index_item-header-icon">
+         <span class="uk-icon" uk-icon="icon: cog; ratio: 1.8">
+          <svg data-svg="cog" height="36" viewbox="0 0 20 20" width="36" xmlns="http://www.w3.org/2000/svg">
+           <circle cx="9.997" cy="10" fill="none" r="3.31" stroke="#000">
+           </circle>
+           <path d="M18.488,12.285 L16.205,16.237 C15.322,15.496 14.185,15.281 13.303,15.791 C12.428,16.289 12.047,17.373 12.246,18.5 L7.735,18.5 C7.938,17.374 7.553,16.299 6.684,15.791 C5.801,15.27 4.655,15.492 3.773,16.237 L1.5,12.285 C2.573,11.871 3.317,10.999 3.317,9.991 C3.305,8.98 2.573,8.121 1.5,7.716 L3.765,3.784 C4.645,4.516 5.794,4.738 6.687,4.232 C7.555,3.722 7.939,2.637 7.735,1.5 L12.263,1.5 C12.072,2.637 12.441,3.71 13.314,4.22 C14.206,4.73 15.343,4.516 16.225,3.794 L18.487,7.714 C17.404,8.117 16.661,8.988 16.67,10.009 C16.672,11.018 17.415,11.88 18.488,12.285 L18.488,12.285 Z" fill="none" stroke="#000">
+           </path>
+          </svg>
+         </span>
+        </div>
+        <div class="bdnewui_index_item-header-content">
+         <h3 class="bdnewui_index_category-name">
+          使用教程
+         </h3>
+         <span class="bdnewui_index_category-desc">
+          有关帅僧的使用教程
+         </span>
+         <span class="bdnewui_index_article-count">
+          0篇文章
+         </span>
+        </div>
+       </div>
+       <div class="bdnewui_index_articles-panel">
+        <div class="bdnewui_index_no-articles">
+         当前分类暂无帮助文章
+        </div>
+        <a class="bdnewui_index_view-all-btn" href="https://news.shuaiseng.com/index.php/category/course/">
+         查看全部
+        </a>
+       </div>
+      </div>
+     </div>
+     <div class="bdnewui_index_category-item">
+      <div class="bdnewui_index_category-content">
+       <div class="bdnewui_index_item-header">
+        <div class="bdnewui_index_item-header-icon">
+         <span class="uk-icon" uk-icon="icon: cog; ratio: 1.8">
+          <svg data-svg="cog" height="36" viewbox="0 0 20 20" width="36" xmlns="http://www.w3.org/2000/svg">
+           <circle cx="9.997" cy="10" fill="none" r="3.31" stroke="#000">
+           </circle>
+           <path d="M18.488,12.285 L16.205,16.237 C15.322,15.496 14.185,15.281 13.303,15.791 C12.428,16.289 12.047,17.373 12.246,18.5 L7.735,18.5 C7.938,17.374 7.553,16.299 6.684,15.791 C5.801,15.27 4.655,15.492 3.773,16.237 L1.5,12.285 C2.573,11.871 3.317,10.999 3.317,9.991 C3.305,8.98 2.573,8.121 1.5,7.716 L3.765,3.784 C4.645,4.516 5.794,4.738 6.687,4.232 C7.555,3.722 7.939,2.637 7.735,1.5 L12.263,1.5 C12.072,2.637 12.441,3.71 13.314,4.22 C14.206,4.73 15.343,4.516 16.225,3.794 L18.487,7.714 C17.404,8.117 16.661,8.988 16.67,10.009 C16.672,11.018 17.415,11.88 18.488,12.285 L18.488,12.285 Z" fill="none" stroke="#000">
+           </path>
+          </svg>
+         </span>
+        </div>
+        <div class="bdnewui_index_item-header-content">
+         <h3 class="bdnewui_index_category-name">
+          用户协议
+         </h3>
+         <span class="bdnewui_index_category-desc">
+          我们最新的用户协议、服务条款等
+         </span>
+         <span class="bdnewui_index_article-count">
+          2篇文章
          </span>
         </div>
        </div>
@@ -212,17 +328,8 @@
          <li>
           帅僧 Progress 用户服务协议
          </li>
-         <li>
-          开学摆烂党速救！这个效率神器公测了，现在注册直接锁定老用户福利！
-         </li>
-         <li>
-          帅僧的全新logo（暂定版）现已启用
-         </li>
-         <li>
-          帅僧新闻官方 Telegram 频道现已上线
-         </li>
         </ul>
-        <a class="bdnewui_index_view-all-btn" href="https://news.shuaiseng.com/index.php/category/default/">
+        <a class="bdnewui_index_view-all-btn" href="https://news.shuaiseng.com/index.php/category/xieyi/">
          查看全部
         </a>
        </div>
@@ -259,7 +366,7 @@
    </div>
   </footer>
   <script type="text/javascript">
-   if (!window.prismLoaded) { window.prismLoaded = true; var script = document.createElement('script'); script.src = 'https://news.shuaiseng.com/usr/themes/beardocs/assets/plugins/codehightlight/prism.js'; script.onload = initPrism; document.head.appendChild(script); } else if (window.Prism) { initPrism(); } function initPrism() { const showLineNumber = false; const preElements = document.querySelectorAll('pre'); preElements.forEach(pre => { let code = pre.querySelector('code'); if (!code) return; const hasLanguageClass = pre.className.match(/\blanguage-\w+\b/) || code.className.match(/\blanguage-\w+\b/); if (!hasLanguageClass) { pre.classList.add('language-plaintext'); } pre.className = pre.className.replace(/\b(line-numbers)\b/g, '').trim(); if (showLineNumber) { pre.classList.add('line-numbers'); } pre.classList.add('prism'); code.classList.add('prism'); }); if (typeof Prism !== 'undefined') { Prism.highlightAll(); } }
+   if (!window.prismLoaded) { window.prismLoaded = true; var script = document.createElement('script'); script.src = 'https://news.shuaiseng.com/usr/themes/beardocs/assets/plugins/codehightlight/prism.js'; script.onload = initPrism; document.head.appendChild(script); } else if (window.Prism) { initPrism(); } function initPrism() { const showLineNumber = true; const preElements = document.querySelectorAll('pre'); preElements.forEach(pre => { let code = pre.querySelector('code'); if (!code) return; const hasLanguageClass = pre.className.match(/\blanguage-\w+\b/) || code.className.match(/\blanguage-\w+\b/); if (!hasLanguageClass) { pre.classList.add('language-plaintext'); } pre.className = pre.className.replace(/\b(line-numbers)\b/g, '').trim(); if (showLineNumber) { pre.classList.add('line-numbers'); } pre.classList.add('prism'); code.classList.add('prism'); }); if (typeof Prism !== 'undefined') { Prism.highlightAll(); } }
   </script>
   <script src="https://news.shuaiseng.com/usr/themes/beardocs/assets/plugins/fancybox/fancybox.umd.min.js">
   </script>
