@@ -42,13 +42,13 @@
     <div class="mdui-carousel">
      <div class="mdui-carousel-container">
       <!-- 轮播图片 -->
-      <div class="mdui-carousel-item">
+      <div class="mdui-carousel-item active">
        <img src="https://upload-bbs.miyoushe.com/upload/2023/11/07/75276539/7a76fdbcc11df713d156822a25a541f8_2069486066987301004.jpg"/>
       </div>
       <div class="mdui-carousel-item">
        <img alt="Slide 2" src="https://upload-bbs.miyoushe.com/upload/2023/11/03/75276539/6aa0de080c505e765e2b58ba8e5e9050_5251780114164386624.jpg"/>
       </div>
-      <div class="mdui-carousel-item active">
+      <div class="mdui-carousel-item">
        <img alt="Slide 3" src="https://fastcdn.mihoyo.com/mi18n/hk4e_cn/m20231010hy56kq3mrk/upload/facc68bf864e0c350cddbc3829c1f667_2805230951576435440.jpg"/>
       </div>
       <!-- 控制按钮 -->
@@ -60,11 +60,11 @@
       </button>
       <!-- 页码指示器 -->
       <div class="mdui-carousel-indicators">
-       <button class="" data-index="0">
+       <button class="active" data-index="0">
        </button>
-       <button class="" data-index="1">
+       <button data-index="1">
        </button>
-       <button class="active" data-index="2">
+       <button data-index="2">
        </button>
       </div>
      </div>
@@ -80,22 +80,22 @@
      <div class="mdui-announcement-vertical">
       <div class="mdui-announcement-container">
        <div class="mdui-announcement-content">
-        <div class="mdui-announcement-item" style="z-index: 0;">
+        <div class="mdui-announcement-item active">
          📢 帅僧平台内测即将开启，敬请期待。
         </div>
-        <div class="mdui-announcement-item active" style="z-index: 1;">
+        <div class="mdui-announcement-item">
          🎉 欢迎来到新帅僧！
         </div>
-        <div class="mdui-announcement-item" style="z-index: 0;">
+        <div class="mdui-announcement-item">
          ⚠️ 请自觉遵守相关条例，严禁发布违法违规内容。维护社区健康发展，人人有责。
         </div>
        </div>
       </div>
       <!-- 页码指示器 -->
       <div class="mdui-announcement-indicators">
-       <button class="" data-index="0">
+       <button class="active" data-index="0">
        </button>
-       <button class="active" data-index="1">
+       <button data-index="1">
        </button>
        <button data-index="2">
        </button>
