@@ -1,25 +1,30 @@
 import os
 import difflib
 import asyncio
+import re
+import tempfile
+import logging
 from datetime import datetime, timedelta
 from pathlib import Path
-from telegram import Bot
-from telegram.request import HTTPXRequest
-from playwright.async_api import async_playwright
+from urllib.parse import urlparse
+#> 网络请求和浏览器自动化
 import requests
+from playwright.async_api import async_playwright
+#> 图片处理和生成
 from PIL import Image, ImageDraw, ImageFont, ImageColor
-import logging
+#> HTML/XML 解析和处理
 from bs4 import BeautifulSoup
 import html
-from urllib.parse import urlparse
+import cssbeautifier
+#> Telegram 机器人功能
+from telegram import Bot
+from telegram.request import HTTPXRequest
+#> 代码语法高亮
 from pygments import highlight
 from pygments.lexers import get_lexer_for_filename, guess_lexer, TextLexer
 from pygments.formatters import ImageFormatter
 from pygments.style import Style
 from pygments.token import Token
-import tempfile
-import re
-import cssbeautifier
 
 # === 配置 ===
 BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
