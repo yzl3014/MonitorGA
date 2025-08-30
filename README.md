@@ -8,6 +8,10 @@
 
 首先 Fork 这个仓库到你的 GitHub 账户。
 
+> [!WARNING]
+> 使用前请删除`data`目录下的所有文件以及`sites.txt`中的全部内容。
+> 本仓库的上述文件中包含的所有内容的版权、知识产权及其他合法权益均归原作者所有，并且本项目和代码贡献者不承担任何责任。
+
 ### 2. 设置 Telegram Bot
 
 在 Telegram 中与 [@BotFather](https://t.me/BotFather) 对话，创建一个新的机器人
