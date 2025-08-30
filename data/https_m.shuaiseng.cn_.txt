@@ -42,10 +42,10 @@
     <div class="mdui-carousel">
      <div class="mdui-carousel-container">
       <!-- 轮播图片 -->
-      <div class="mdui-carousel-item active">
+      <div class="mdui-carousel-item">
        <img src="https://upload-bbs.miyoushe.com/upload/2023/11/07/75276539/7a76fdbcc11df713d156822a25a541f8_2069486066987301004.jpg"/>
       </div>
-      <div class="mdui-carousel-item">
+      <div class="mdui-carousel-item active">
        <img alt="Slide 2" src="https://upload-bbs.miyoushe.com/upload/2023/11/03/75276539/6aa0de080c505e765e2b58ba8e5e9050_5251780114164386624.jpg"/>
       </div>
       <div class="mdui-carousel-item">
@@ -60,9 +60,9 @@
       </button>
       <!-- 页码指示器 -->
       <div class="mdui-carousel-indicators">
-       <button class="active" data-index="0">
+       <button class="" data-index="0">
        </button>
-       <button data-index="1">
+       <button class="active" data-index="1">
        </button>
        <button data-index="2">
        </button>
