@@ -1,9 +1,11 @@
 import os
 import difflib
+import asyncio
 from datetime import datetime, timedelta
 from pathlib import Path
 from telegram import Bot
-from playwright.sync_api import sync_playwright
+from telegram.request import HTTPXRequest
+from playwright.async_api import async_playwright
 import requests
 from PIL import Image, ImageDraw, ImageFont, ImageColor
 import logging
@@ -28,7 +30,15 @@ FONT_FILE = "aliph.ttf"  # 直接使用当前目录下的字体文件
 DATA_DIR.mkdir(exist_ok=True)
 LOG_FILE.touch(exist_ok=True)
 
-bot = Bot(token=BOT_TOKEN)
+# 创建自定义请求对象，增加连接池大小和超时时间
+request = HTTPXRequest(
+    connection_pool_size=20,  # 增加连接池大小
+    read_timeout=30,  # 增加读取超时时间
+    write_timeout=30,  # 增加写入超时时间
+    connect_timeout=30,  # 增加连接超时时间
+)
+
+bot = Bot(token=BOT_TOKEN, request=request)
 
 
 # === 自定义VSCode风格 ===
@@ -60,7 +70,7 @@ def normalize_text(text):
     return text.replace("\r\n", "\n").strip()
 
 
-def get_page_content(url, dynamic=False):
+async def get_page_content(url, dynamic=False):
     try:
         # 解析URL获取域名
         parsed_url = urlparse(url)
@@ -70,21 +80,23 @@ def get_page_content(url, dynamic=False):
         is_mobile_domain = "m." in domain
 
         if dynamic:
-            with sync_playwright() as p:
-                browser = p.chromium.launch(headless=True)
-                context = browser.new_context(
+            # 使用异步Playwright API
+            async with async_playwright() as p:
+                browser = await p.chromium.launch(headless=True)
+                context = await browser.new_context(
                     user_agent=(
                         "Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1"
                         if is_mobile_domain
                         else "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
                     )
                 )
-                page = context.new_page()
-                page.goto(url, timeout=30000, wait_until="networkidle")
-                content = page.content()
-                browser.close()
+                page = await context.new_page()
+                await page.goto(url, timeout=30000, wait_until="networkidle")
+                content = await page.content()
+                await browser.close()
                 return normalize_text(content)
         else:
+            # 对于非动态内容，仍然使用requests（同步）
             headers = {
                 "User-Agent": (
                     "Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1"
@@ -92,7 +104,11 @@ def get_page_content(url, dynamic=False):
                     else "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
                 )
             }
-            resp = requests.get(url, headers=headers, timeout=15)
+            # 在异步函数中运行同步代码
+            loop = asyncio.get_event_loop()
+            resp = await loop.run_in_executor(
+                None, lambda: requests.get(url, headers=headers, timeout=15)
+            )
             resp.encoding = "utf-8"
             return normalize_text(resp.text)
     except Exception as e:
@@ -364,9 +380,41 @@ def diff_to_image(
     img.save(output_file)
 
 
+# === 异步消息发送管理器 ===
+class TelegramMessageManager:
+    def __init__(self, bot):
+        self.bot = bot
+        self.semaphore = asyncio.Semaphore(5)  # 限制并发数为5
+
+    async def send_message(self, chat_id, text):
+        async with self.semaphore:
+            try:
+                await self.bot.send_message(chat_id=chat_id, text=text)
+                await asyncio.sleep(0.5)  # 添加短暂延迟
+            except Exception as e:
+                logging.error(f"发送消息失败: {e}")
+                raise
+
+    async def send_photo(self, chat_id, photo_path, caption):
+        async with self.semaphore:
+            try:
+                with open(photo_path, "rb") as photo:
+                    await self.bot.send_photo(
+                        chat_id=chat_id, photo=photo, caption=caption
+                    )
+                await asyncio.sleep(1)  # 图片发送后添加稍长的延迟
+            except Exception as e:
+                logging.error(f"发送图片失败: {e}")
+                raise
+
+
+# 创建消息管理器实例
+message_manager = TelegramMessageManager(bot)
+
+
 # === 核心逻辑 ===
-def compare_and_notify(url, dynamic=False, is_text=False):
-    content = get_page_content(url, dynamic)
+async def compare_and_notify_async(url, dynamic=False, is_text=False):
+    content = await get_page_content(url, dynamic)  # 使用await调用异步函数
     timestamp = get_cst_time()
     snapshot_file = DATA_DIR / f"{safe_filename(url)}.txt"
     diff_image_file = DATA_DIR / f"{safe_filename(url)}_diff.png"
@@ -374,7 +422,7 @@ def compare_and_notify(url, dynamic=False, is_text=False):
     # 网站访问失败 → 发送给管理员
     if content.startswith("ERROR:"):
         message = f"⚠️ 无法访问: {url}\n时间: {timestamp}\n错误信息: {content}"
-        bot.send_message(chat_id=ADMIN_USER_ID, text=message)
+        await message_manager.send_message(ADMIN_USER_ID, message)
         with LOG_FILE.open("a", encoding="utf-8") as log:
             log.write(f"[{timestamp}] {url} 访问失败: {content}\n")
         return
@@ -387,7 +435,7 @@ def compare_and_notify(url, dynamic=False, is_text=False):
     if first_run:
         snapshot_file.write_text(content, encoding="utf-8")
         message = f"📥📥 首次抓取内容: {url}\n时间: {timestamp}"
-        bot.send_message(chat_id=CHANNEL_ID, text=message)
+        await message_manager.send_message(CHANNEL_ID, message)
         logging.info(f"首次抓取: {url}")
     else:
         try:
@@ -436,18 +484,14 @@ def compare_and_notify(url, dynamic=False, is_text=False):
 
                 # 发送更新通知
                 caption = f"🔍🔍 内容更新: {url}\n时间: {timestamp}"
-                bot.send_photo(
-                    chat_id=CHANNEL_ID,
-                    photo=open(diff_image_file, "rb"),
-                    caption=caption,
-                )
+                await message_manager.send_photo(CHANNEL_ID, diff_image_file, caption)
                 logging.info(f"检测到更新: {url}")
             else:
                 logging.info(f"内容未变化: {url}")
         except Exception as e:
             logging.error(f"比较内容时出错: {e}")
             message = f"⚠️ 内容比较失败: {url}\n错误信息: {e}"
-            bot.send_message(chat_id=ADMIN_USER_ID, text=message)
+            await message_manager.send_message(ADMIN_USER_ID, message)
 
     # 写日志
     with LOG_FILE.open("a", encoding="utf-8") as log:
@@ -457,7 +501,7 @@ def compare_and_notify(url, dynamic=False, is_text=False):
     snapshot_file.write_text(content, encoding="utf-8")
 
 
-def main():
+async def main_async():
     if not BOT_TOKEN or not CHANNEL_ID or not ADMIN_USER_ID:
         raise ValueError(
             "请设置 TELEGRAM_BOT_TOKEN, TELEGRAM_CHANNEL_ID 和 TELEGRAM_ADMIN_ID 环境变量"
@@ -476,9 +520,8 @@ def main():
         logging.info(f"使用字体: {font_path}")
     else:
         logging.warning(f"字体文件 {font_path} 不存在")
-        bot.send_message(
-            chat_id=ADMIN_USER_ID,
-            text=f"⚠️ 字体文件 {font_path} 不存在，将尝试使用回退字体",
+        await message_manager.send_message(
+            ADMIN_USER_ID, f"⚠️ 字体文件 {font_path} 不存在，将尝试使用回退字体"
         )
 
     # 读取监测站点列表
@@ -494,7 +537,9 @@ def main():
         logging.info(f"成功读取 {len(urls)} 个监测站点")
     except Exception as e:
         logging.error(f"读取sites.txt失败: {e}")
-        bot.send_message(chat_id=ADMIN_USER_ID, text=f"⚠️ 读取监测站点列表失败: {e}")
+        await message_manager.send_message(
+            ADMIN_USER_ID, f"⚠️ 读取监测站点列表失败: {e}"
+        )
         return
 
     # 处理每个站点
@@ -503,11 +548,16 @@ def main():
         is_text = type_ == "txt"
         try:
             logging.info(f"开始处理: {url} (类型: {type_})")
-            compare_and_notify(url, dynamic=dynamic, is_text=is_text)
+            await compare_and_notify_async(url, dynamic=dynamic, is_text=is_text)
         except Exception as e:
             logging.error(f"处理站点 {url} 时出错: {e}")
             message = f"⚠️ 处理站点失败: {url}\n错误信息: {e}"
-            bot.send_message(chat_id=ADMIN_USER_ID, text=message)
+            await message_manager.send_message(ADMIN_USER_ID, message)
+
+
+def main():
+    # 运行主异步函数
+    asyncio.run(main_async())
 
 
 if __name__ == "__main__":
