@@ -18,6 +18,8 @@ from pygments.formatters import ImageFormatter
 from pygments.style import Style
 from pygments.token import Token
 import tempfile
+import re
+import cssbeautifier
 
 # === 配置 ===
 BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
@@ -119,11 +121,35 @@ def safe_filename(url):
     return url.replace("://", "_").replace("/", "_").replace("?", "_").replace("&", "_")
 
 
+def format_css_content(css_content):
+    """格式化CSS内容"""
+    try:
+        # 使用cssbeautifier格式化CSS
+        options = cssbeautifier.default_options()
+        options.indent = "  "  # 使用两个空格缩进
+        options.openbrace = "separate-line"  # 大括号单独一行
+        return cssbeautifier.beautify(css_content, options)
+    except Exception as e:
+        logging.error(f"CSS格式化失败: {e}")
+        return css_content  # 失败时返回原始内容
+
+
 def format_html_content(html_content):
     """格式化HTML内容，提高diff可读性"""
     try:
         # 使用BeautifulSoup解析并格式化HTML
         soup = BeautifulSoup(html_content, "html.parser")
+
+        # 处理style标签中的CSS内容
+        for style_tag in soup.find_all("style"):
+            if style_tag.string:
+                try:
+                    # 格式化CSS内容
+                    formatted_css = format_css_content(style_tag.string)
+                    style_tag.string = formatted_css
+                except Exception as e:
+                    logging.warning(f"格式化CSS内容失败: {e}")
+                    # 如果格式化失败，保持原样
 
         # 压缩和美化HTML
         for element in soup.find_all(True):
