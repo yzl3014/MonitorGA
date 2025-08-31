@@ -1,5 +1,4 @@
 dynamic|https://www.shuaiseng.com/
 dynamic|https://zhegans.cn/
 dynamic|https://news.shuaiseng.com/
-dynamic|https://m.shuaiseng.cn/
 dynamic|https://progress.shuaiseng.cn/
