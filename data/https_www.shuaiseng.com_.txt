@@ -1,7 +1,148 @@
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
  <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   502 | 错误的网关 - FarCDN
+  </title>
+  <link href="https://farcdn.net/www/otimg/favicon.png" rel="shortcut icon" type="image/png"/>
+  <style>
+   /* ©2023 FarCDN(farcdn.net) 加载页面CSS样式（包括字体加载*/ #loader { position: absolute; width: 200px; height: 40px; top: 0; bottom: 0; left: 0; right: 0; margin: auto; background-color: white; } #loader img { margin: 10px; } #loader .loader_bo a { padding: 20px; color: gainsboro; font-size: 18px; font-family: 'SYHr', sans-serif; position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); } #loader .loader_bo a:hover { color: rgb(71, 191, 247); font-size: 20px; } .item_circle { float: left; width: 50px; height: 20px; justify-content: center; align-items: center } .circle-1 { animation-name: circle-1; animation-duration: 1s; animation-iteration-count: infinite; } .circle-2 { animation-name: circle-2; animation-duration: 1s; animation-iteration-count: infinite; } .circle-3 { animation-name: circle-3; animation-duration: 1s; animation-iteration-count: infinite; } .circle-4 { animation-name: circle-4; animation-duration: 1s; animation-iteration-count: infinite; } @keyframes circle-4 { 75% { background: rgb(46, 156, 255); } } @keyframes circle-3 { 50% { background: rgb(46, 156, 255); } } @keyframes circle-2 { 25% { background: rgb(46, 156, 255); } } @keyframes circle-1 { 0% { background: rgb(46, 156, 255); } } /* ©2023 FarCDN（farcdn.net）通用样式css */ /* 默认·样式 */ * { padding: 0; margin: 0; font-family: 'SYHr', sans-serif; } body { background-color: rgb(251, 251, 251); height: 100vh; } .requestnews { text-align: center; padding: 0 10px; } .textbox { margin: auto 0; } #optx { transition: all 0.8s; font-family: 'SYHr', sans-serif; color: #888; margin: 0px; } #optx img { height: 3.2em; margin-left: 0.4em; vertical-align: bottom; } .blue-button { background-color: #87CEEB; border: none; color: #FFFFFF; font-weight: 600; padding: 0.5em 1em; text-align: center; text-decoration: none; display: inline-block; font-size: 0.8em; margin: 4px 2px; cursor: pointer; border-radius: 12px; } .blue-button:hover { background-color: #29abe2; } @keyframes slide { from { background-position: 70% bottom; } to { background-position: 80% bottom; } } /* optx盒子样式 */ #optx #main { display: table; width: 100%; height: auto; text-align: center; } @keyframes type { from { box-shadow: inset -3px 0px 0px #888; } to { box-shadow: inset -3px 0px 0px transparent; } } /* 正常页面内容 默认隐藏 */ #page { height: 100%; display: none; } .botton_a a, .text2 a { padding: 1em; color: #29abe2; font-size: 0.9em; font-family: 'SYHr', sans-serif; } .botton_a #dunform { background: url(https://farcdn.net/www/otimg/dun_blue1.png) no-repeat 55% center; background-size: 15px; } .botton_a a:hover, .text2 a:hover { color: rgb(26, 126, 173); } .botton_a { padding-bottom: 8px; color: rgb(72, 71, 71); font-size: 0.9em; font-family: 'SYHr', sans-serif; position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); text-align: center; } @keyframes pulse { 0% { transform: scale(0); } 50% { transform: scale(1.3); opacity: 0; } 100% { transform: scale(1.3); opacity: 0; } } @keyframes pulse-2 { 0% { transform: scale(0); } 100% { transform: scale(1.3); opacity: 0; } } .nodes .node { border-radius: 100px; position: absolute; left: 0; right: 0; margin: auto; transform: scale(1); transform-origin: center center; } .nodes .node-1 { width: 100%; height: 100%; background-color: lighten(#0CCA4A, 25%); top: 0; animation: pulse 1.6s linear 0s infinite; } .nodes .node-2 { width: 66.6%; height: 66.6%; background-color: #0CCA4A; top: 16.5%; animation: pulse-2 1.6s linear 0s infinite; } .nodes .node-3 { width: 33.3%; height: 33.3%; background-color: #0CCA4A; top: 33.3%; } .nodes .node-10 { width: 100%; height: 100%; background-color: lighten(#ff8814, 25%); top: 0; animation: pulse 1.6s linear 0s infinite; } .nodes .node-20 { width: 66.6%; height: 66.6%; background-color: #ff8814; top: 16.5%; animation: pulse-2 1.6s linear 0s infinite; } .nodes .node-30 { width: 33.3%; height: 33.3%; background-color: #ff8814; top: 33.3%; } .nodes .node-100 { width: 100%; height: 100%; background-color: lighten(#e52429, 25%); top: 0; animation: pulse 1.6s linear 0s infinite; } .nodes .node-200 { width: 66.6%; height: 66.6%; background-color: #e52429; top: 16.5%; animation: pulse-2 1.6s linear 0s infinite; } .nodes .node-300 { width: 33.3%; height: 33.3%; background-color: #e52429; top: 33.3%; } /* spinner style */ .spinner-eff { position: relative; width: 2em; height: 2em; } .spinner-eff:before, .spinner-eff:after { content: ""; display: block; } .spinner-eff .node:before, .spinner-eff .node:after { content: ""; display: block; } .lightGo { width: 2.6em; margin: 0 auto; } .nodeArea { font-family: 'SYHr', sans-serif; text-align: center; } .text1, .text2, .text3 { line-height: 2em; text-shadow: 3px 3px rgb(245, 10, 10) 8px; margin: 5px; font-size: 1em; } .text1 { border-bottom: 2px dashed grey; font-size: xx-large; margin: 0.5em; padding: 6px; } .text1 span { color: red; font-weight: 700; } /* 移动设备适配 */ @media only screen and (max-width: 768px) { * { padding: 0; margin: 0; font-family: 'SYHr', sans-serif; } #oops { height: 21em; --width: 94%; background: url(https://farcdn.net/www/otimg/paper-paper-1.png) no-repeat 80% bottom; background-size: 35%; padding: 2em; padding-top: 2em; margin: 0 auto; text-align: center; animation: slide 0.2s linear forwards; } #optx #main .fof { vertical-align: middle; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; background: url(https://farcdn.net/www/otimg/error-64.png) no-repeat 4% center; } #optx #main .fof img { display: none; } #optx #main .fof h1 { font-size: 2.5em; display: inline-block; padding-left: 0.5em; padding-right: 0.3em; animation: type .8s alternate infinite; } #netinfo { padding: 2em; border: 2px solid grey; border-radius: 8px; margin: 10px 10%; height: 6em; display: grid; width: var(--width); grid-template-columns: 1fr 1fr 1fr; } } /* PC端样式 */ @media screen and (min-width: 769px) { /* 在大于等于 769px 的屏幕上应用的样式 */ #oops { height: 21em; width: 50em; background: url(https://farcdn.net/www/otimg/paper-paper-1.png) no-repeat 80% bottom; background-size: 35%; padding: 2em; padding-top: 3em; margin: 0 auto; text-align: center; animation: slide 0.2s linear forwards; } #optx #main .fof { vertical-align: middle; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; background: url(https://farcdn.net/www/otimg/error-64.png) no-repeat 10% center; } #optx #main .fof h1 { font-size: 2.5em; display: inline-block; padding-right: 0.9em; animation: type .8s alternate infinite; } #netinfo { padding: 2em; border: 2px solid grey; border-radius: 8px; margin: 0em 10%; height: 6em; display: grid; width: auto; grid-template-columns: 1fr 1fr 1fr; } .requestnews { font-size: 13px; } }
+  </style>
  </head>
+ <!-- 请注意，此页面所有权归属FarCDN，目前尚未计划开源，请尊重原作者劳动成果，切勿盗用 1.1-->
  <body>
-  维护中 Developing
+  <script>
+   window.addEventListener('load', function () { setTimeout(function () { document.getElementById('loader').style.display = 'none'; // 隐藏加载页面 setTimeout(function () { document.getElementById('page').style.display = 'block'; // 显示正常页面内容 }, 1000); // 等待1秒之后显示正常页面内容 }, 2500); // 等待2秒之后隐藏加载页面 });
+  </script>
+  <script>
+   function openblogLink(event) { event.preventDefault(); // 阻止默认的提交行为 event.stopPropagation(); // 阻止事件冒泡 window.open("https://blog.farcdn.net"); }
+  </script>
+  <!-- 加载页面 开始 -->
+  <div id="loader">
+   <img alt="FarCDN" height="55px" src="https://farcdn.net/www/otimg/farcdn_lan_chang.png"/>
+   <br/>
+   <div class="item_circle circle-1">
+   </div>
+   <div class="item_circle circle-2">
+   </div>
+   <div class="item_circle circle-3">
+   </div>
+   <div class="item_circle circle-4">
+   </div>
+   <div class="loader_bo">
+    FarCDN WAF
+   </div>
+  </div>
+  <!-- 加载页面 结束 -->
+  <div id="page">
+   <!-- oops区块 错误的具体提示位置 开始 -->
+   <div id="oops">
+    <div class="textbox">
+     <div id="optx">
+      <div id="main">
+       <div class="fof">
+        <h1>
+         Error 502
+        </h1>
+        <img alt="FarCDN" src="https://farcdn.net/www/otimg/farcdn_lan_chang.png"/>
+       </div>
+      </div>
+     </div>
+     <p class="text1">
+      <span>
+       Oops!
+      </span>
+      源站读取失败
+     </p>
+     <p class="text2">
+      原因：无法连接到源站服务器，请联系网站管理员。
+     </p>
+     <p class="text3">
+      ✨前往FarCDN博客看看 ↓
+     </p>
+     <form>
+      <button class="blue-button" onclick="openblogLink(event)">
+       前往FarCDN博客
+      </button>
+     </form>
+    </div>
+   </div>
+   <!-- oops区块 结束 -->
+   <div id="netinfo">
+    <div class="nodeArea nd1">
+     <div class="lightGo">
+      <div class="spinner-eff nodes">
+       <div class="node node-1">
+       </div>
+       <div class="node node-2">
+       </div>
+       <div class="node node-3">
+       </div>
+      </div>
+     </div>
+     <p>
+      用户浏览器/网络
+     </p>
+     <p>
+      正常
+     </p>
+    </div>
+    <div class="nodeArea nd2">
+     <div class="lightGo">
+      <div class="spinner-eff nodes">
+       <div class="node node-1">
+       </div>
+       <div class="node node-2">
+       </div>
+       <div class="node node-3">
+       </div>
+      </div>
+     </div>
+     <p>
+      FarCDN节点
+     </p>
+     <p>
+      正常
+     </p>
+    </div>
+    <div class="nodeArea nd3">
+     <div class="lightGo">
+      <div class="spinner-eff nodes">
+       <div class="node node-10">
+       </div>
+       <div class="node node-20">
+       </div>
+       <div class="node node-30">
+       </div>
+      </div>
+     </div>
+     <p>
+      源站错误
+     </p>
+     <p>
+      无法连接
+     </p>
+    </div>
+   </div>
+   <div class="botton_a">
+    <span id="dunform">
+     Security by   
+     <a href="https://farcdn.net" rel="noopener noreferrer" target="_blank">
+      FarCDN
+     </a>
+    </span>
+   </div>
+   <p class="requestnews">
+    <span>
+     你的 IP: 172.214.44.52
+    </span>
+    <br/>
+    <span>
+     请求 ID: 1758319723019701000001
+    </span>
+   </p>
+  </div>
  </body>
 </html>
