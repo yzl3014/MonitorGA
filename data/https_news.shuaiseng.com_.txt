@@ -1,148 +1,386 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
  <head>
   <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="webkit" name="renderer"/>
+  <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"/>
+  <meta content="yes" name="apple-mobile-web-app-capable"/>
+  <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+  <meta content="yes" name="apple-touch-fullscreen"/>
+  <meta content="email=no" name="format-detection"/>
+  <meta content="no" name="wap-font-scale"/>
+  <meta content="user-scalable=no, width=device-width" name="viewport"/>
+  <meta content="telephone=no" name="format-detection"/>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
   <title>
-   502 | 错误的网关 - FarCDN
+   新闻
   </title>
-  <link href="https://farcdn.net/www/otimg/favicon.png" rel="shortcut icon" type="image/png"/>
+  <link href="https://news.shuaiseng.com/usr/themes/beardocs/assets/css/beardocs.css?v=1.1.3.20250814" rel="stylesheet"/>
+  <link href="https://news.shuaiseng.com/usr/themes/beardocs/assets/css/beardocs_ui.css?v=1.1.3.20250814" rel="stylesheet"/>
+  <link href="https://news.shuaiseng.com/usr/themes/beardocs/assets/plugins/remixicon/remixicon.css" rel="stylesheet"/>
+  <link href="https://news.shuaiseng.com/usr/themes/beardocs/assets/plugins/element-ui/index.min.css" rel="stylesheet"/>
+  <link href="https://news.shuaiseng.com/usr/themes/beardocs/assets/plugins/fancybox/fancybox.min.css" rel="stylesheet"/>
+  <link href="https://news.shuaiseng.com/usr/themes/beardocs/assets/plugins/menutree/menutree.min.css?v=1" rel="stylesheet"/>
+  <link href="https://news.shuaiseng.com/usr/themes/beardocs/assets/plugins/codehightlight/styles/BlackMac.css" rel="stylesheet"/>
+  <script src="https://news.shuaiseng.com/usr/themes/beardocs/assets/plugins/jquery/jquery.min.js">
+  </script>
+  <script src="https://news.shuaiseng.com/usr/themes/beardocs/assets/js/uikit.js">
+  </script>
+  <meta content="news,shuaiseng,帅僧,新闻" name="keywords"/>
+  <link href="https://news.shuaiseng.com/index.php/feed/" rel="alternate" title="新闻 » RSS 2.0" type="application/rss+xml"/>
+  <link href="https://news.shuaiseng.com/index.php/feed/rss/" rel="alternate" title="新闻 » RSS 1.0" type="application/rdf+xml"/>
+  <script>
+   window.searchApi = "https://news.shuaiseng.com/index.php/bd-search";
+  </script>
   <style>
-   /* ©2023 FarCDN(farcdn.net) 加载页面CSS样式（包括字体加载*/ #loader { position: absolute; width: 200px; height: 40px; top: 0; bottom: 0; left: 0; right: 0; margin: auto; background-color: white; } #loader img { margin: 10px; } #loader .loader_bo a { padding: 20px; color: gainsboro; font-size: 18px; font-family: 'SYHr', sans-serif; position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); } #loader .loader_bo a:hover { color: rgb(71, 191, 247); font-size: 20px; } .item_circle { float: left; width: 50px; height: 20px; justify-content: center; align-items: center } .circle-1 { animation-name: circle-1; animation-duration: 1s; animation-iteration-count: infinite; } .circle-2 { animation-name: circle-2; animation-duration: 1s; animation-iteration-count: infinite; } .circle-3 { animation-name: circle-3; animation-duration: 1s; animation-iteration-count: infinite; } .circle-4 { animation-name: circle-4; animation-duration: 1s; animation-iteration-count: infinite; } @keyframes circle-4 { 75% { background: rgb(46, 156, 255); } } @keyframes circle-3 { 50% { background: rgb(46, 156, 255); } } @keyframes circle-2 { 25% { background: rgb(46, 156, 255); } } @keyframes circle-1 { 0% { background: rgb(46, 156, 255); } } /* ©2023 FarCDN（farcdn.net）通用样式css */ /* 默认·样式 */ * { padding: 0; margin: 0; font-family: 'SYHr', sans-serif; } body { background-color: rgb(251, 251, 251); height: 100vh; } .requestnews { text-align: center; padding: 0 10px; } .textbox { margin: auto 0; } #optx { transition: all 0.8s; font-family: 'SYHr', sans-serif; color: #888; margin: 0px; } #optx img { height: 3.2em; margin-left: 0.4em; vertical-align: bottom; } .blue-button { background-color: #87CEEB; border: none; color: #FFFFFF; font-weight: 600; padding: 0.5em 1em; text-align: center; text-decoration: none; display: inline-block; font-size: 0.8em; margin: 4px 2px; cursor: pointer; border-radius: 12px; } .blue-button:hover { background-color: #29abe2; } @keyframes slide { from { background-position: 70% bottom; } to { background-position: 80% bottom; } } /* optx盒子样式 */ #optx #main { display: table; width: 100%; height: auto; text-align: center; } @keyframes type { from { box-shadow: inset -3px 0px 0px #888; } to { box-shadow: inset -3px 0px 0px transparent; } } /* 正常页面内容 默认隐藏 */ #page { height: 100%; display: none; } .botton_a a, .text2 a { padding: 1em; color: #29abe2; font-size: 0.9em; font-family: 'SYHr', sans-serif; } .botton_a #dunform { background: url(https://farcdn.net/www/otimg/dun_blue1.png) no-repeat 55% center; background-size: 15px; } .botton_a a:hover, .text2 a:hover { color: rgb(26, 126, 173); } .botton_a { padding-bottom: 8px; color: rgb(72, 71, 71); font-size: 0.9em; font-family: 'SYHr', sans-serif; position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); text-align: center; } @keyframes pulse { 0% { transform: scale(0); } 50% { transform: scale(1.3); opacity: 0; } 100% { transform: scale(1.3); opacity: 0; } } @keyframes pulse-2 { 0% { transform: scale(0); } 100% { transform: scale(1.3); opacity: 0; } } .nodes .node { border-radius: 100px; position: absolute; left: 0; right: 0; margin: auto; transform: scale(1); transform-origin: center center; } .nodes .node-1 { width: 100%; height: 100%; background-color: lighten(#0CCA4A, 25%); top: 0; animation: pulse 1.6s linear 0s infinite; } .nodes .node-2 { width: 66.6%; height: 66.6%; background-color: #0CCA4A; top: 16.5%; animation: pulse-2 1.6s linear 0s infinite; } .nodes .node-3 { width: 33.3%; height: 33.3%; background-color: #0CCA4A; top: 33.3%; } .nodes .node-10 { width: 100%; height: 100%; background-color: lighten(#ff8814, 25%); top: 0; animation: pulse 1.6s linear 0s infinite; } .nodes .node-20 { width: 66.6%; height: 66.6%; background-color: #ff8814; top: 16.5%; animation: pulse-2 1.6s linear 0s infinite; } .nodes .node-30 { width: 33.3%; height: 33.3%; background-color: #ff8814; top: 33.3%; } .nodes .node-100 { width: 100%; height: 100%; background-color: lighten(#e52429, 25%); top: 0; animation: pulse 1.6s linear 0s infinite; } .nodes .node-200 { width: 66.6%; height: 66.6%; background-color: #e52429; top: 16.5%; animation: pulse-2 1.6s linear 0s infinite; } .nodes .node-300 { width: 33.3%; height: 33.3%; background-color: #e52429; top: 33.3%; } /* spinner style */ .spinner-eff { position: relative; width: 2em; height: 2em; } .spinner-eff:before, .spinner-eff:after { content: ""; display: block; } .spinner-eff .node:before, .spinner-eff .node:after { content: ""; display: block; } .lightGo { width: 2.6em; margin: 0 auto; } .nodeArea { font-family: 'SYHr', sans-serif; text-align: center; } .text1, .text2, .text3 { line-height: 2em; text-shadow: 3px 3px rgb(245, 10, 10) 8px; margin: 5px; font-size: 1em; } .text1 { border-bottom: 2px dashed grey; font-size: xx-large; margin: 0.5em; padding: 6px; } .text1 span { color: red; font-weight: 700; } /* 移动设备适配 */ @media only screen and (max-width: 768px) { * { padding: 0; margin: 0; font-family: 'SYHr', sans-serif; } #oops { height: 21em; --width: 94%; background: url(https://farcdn.net/www/otimg/paper-paper-1.png) no-repeat 80% bottom; background-size: 35%; padding: 2em; padding-top: 2em; margin: 0 auto; text-align: center; animation: slide 0.2s linear forwards; } #optx #main .fof { vertical-align: middle; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; background: url(https://farcdn.net/www/otimg/error-64.png) no-repeat 4% center; } #optx #main .fof img { display: none; } #optx #main .fof h1 { font-size: 2.5em; display: inline-block; padding-left: 0.5em; padding-right: 0.3em; animation: type .8s alternate infinite; } #netinfo { padding: 2em; border: 2px solid grey; border-radius: 8px; margin: 10px 10%; height: 6em; display: grid; width: var(--width); grid-template-columns: 1fr 1fr 1fr; } } /* PC端样式 */ @media screen and (min-width: 769px) { /* 在大于等于 769px 的屏幕上应用的样式 */ #oops { height: 21em; width: 50em; background: url(https://farcdn.net/www/otimg/paper-paper-1.png) no-repeat 80% bottom; background-size: 35%; padding: 2em; padding-top: 3em; margin: 0 auto; text-align: center; animation: slide 0.2s linear forwards; } #optx #main .fof { vertical-align: middle; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; background: url(https://farcdn.net/www/otimg/error-64.png) no-repeat 10% center; } #optx #main .fof h1 { font-size: 2.5em; display: inline-block; padding-right: 0.9em; animation: type .8s alternate infinite; } #netinfo { padding: 2em; border: 2px solid grey; border-radius: 8px; margin: 0em 10%; height: 6em; display: grid; width: auto; grid-template-columns: 1fr 1fr 1fr; } .requestnews { font-size: 13px; } }
+   header { background: linear-gradient(60deg, #1e73be 0%, #44d822 100%); }
+  </style>
+  <script>
+   (function () { window.TypechoComment = { dom : function (id) { return document.getElementById(id); }, create : function (tag, attr) { var el = document.createElement(tag); for (var key in attr) { el.setAttribute(key, attr[key]); } return el; }, reply : function (cid, coid) { var comment = this.dom(cid), parent = comment.parentNode, response = this.dom('respond-post-4'), input = this.dom('comment-parent'), form = 'form' == response.tagName ? response : response.getElementsByTagName('form')[0], textarea = response.getElementsByTagName('textarea')[0]; if (null == input) { input = this.create('input', { 'type' : 'hidden', 'name' : 'parent', 'id' : 'comment-parent' }); form.appendChild(input); } input.setAttribute('value', coid); if (null == this.dom('comment-form-place-holder')) { var holder = this.create('div', { 'id' : 'comment-form-place-holder' }); response.parentNode.insertBefore(holder, response); } //comment.appendChild(response); comment.insertAdjacentElement("afterend",response); this.dom('cancel-comment-reply-link').style.display = ''; if (null != textarea && 'text' == textarea.name) { textarea.focus(); } return false; }, cancelReply : function () { var response = this.dom('respond-post-4'), holder = this.dom('comment-form-place-holder'), input = this.dom('comment-parent'); if (null != input) { input.parentNode.removeChild(input); } if (null == holder) { return true; } this.dom('cancel-comment-reply-link').style.display = 'none'; holder.parentNode.insertBefore(response, holder); return false; } }; })();
+  </script>
+  <script src="https://news.shuaiseng.com/usr/themes/beardocs/assets/plugins/codehightlight/prism.js">
+  </script>
+  <style id="funlazy-fade-in-style">
+   .funlazy-fadeIn { animation: funlazy-fadeIn 400ms ease forwards; } @keyframes funlazy-fadeIn { from { opacity: 0; } to { opacity: 1; } }
   </style>
  </head>
- <!-- 请注意，此页面所有权归属FarCDN，目前尚未计划开源，请尊重原作者劳动成果，切勿盗用 1.1-->
  <body>
-  <script>
-   window.addEventListener('load', function () { setTimeout(function () { document.getElementById('loader').style.display = 'none'; // 隐藏加载页面 setTimeout(function () { document.getElementById('page').style.display = 'block'; // 显示正常页面内容 }, 1000); // 等待1秒之后显示正常页面内容 }, 2500); // 等待2秒之后隐藏加载页面 });
-  </script>
-  <script>
-   function openblogLink(event) { event.preventDefault(); // 阻止默认的提交行为 event.stopPropagation(); // 阻止事件冒泡 window.open("https://blog.farcdn.net"); }
-  </script>
-  <!-- 加载页面 开始 -->
-  <div id="loader">
-   <img alt="FarCDN" height="55px" src="https://farcdn.net/www/otimg/farcdn_lan_chang.png"/>
-   <br/>
-   <div class="item_circle circle-1">
+  <svg aria-hidden="true" id="outline-icons" style="position:absolute;display:none;width:0;height:0;overflow:hidden;">
+   <symbol id="outline-icon-up" viewbox="0 0 1024 1024">
+    <path d="M494.784 261.696c0.832-0.448 1.536-1.216 2.368-1.536a38.72 38.72 0 0 1 46.08 8.256l277.824 302.272a41.92 41.92 0 0 1-1.536 58.048 39.104 39.104 0 0 1-56.448-1.6L513.728 355.904 260.736 626.048a39.104 39.104 0 0 1-56.448 1.088 41.6 41.6 0 0 1-1.088-57.984L483.84 269.696c0.512-0.512 1.344-0.768 1.92-1.408l1.088-1.344c2.368-2.496 5.312-3.648 8-5.248z">
+    </path>
+   </symbol>
+   <symbol id="outline-icon-down" viewbox="0 0 1024 1024">
+    <path d="M494.784 762.304c0.832 0.448 1.536 1.216 2.368 1.536 15.232 7.488 33.92 4.992 46.08-8.256l277.824-302.272a41.92 41.92 0 0 0-1.536-58.048 39.104 39.104 0 0 0-56.448 1.6l-249.344 271.232-252.992-270.144a39.104 39.104 0 0 0-56.448-1.088 41.6 41.6 0 0 0-1.088 57.984l280.576 299.456c0.512 0.512 1.344 0.768 1.92 1.408l1.088 1.344c2.368 2.496 5.312 3.648 8 5.248z">
+    </path>
+   </symbol>
+   <symbol id="outline-icon-menu" viewbox="0 0 1024 1024">
+    <path d="M320 256h640V128H320zM320 576h640V448H320zM320 896h640v-128H320zM64 256h128V128H64zM64 576h128V448H64zM64 896h128v-128H64z">
+    </path>
+   </symbol>
+   <symbol id="outline-icon-file" viewbox="0 0 1024 1024">
+    <path d="M320 640h256v128H320z">
+    </path>
+    <path d="M320 448h384v128H320z">
+    </path>
+    <path d="M640 0l320 320v557.696C960 958.528 909.824 1024 848 1024H176C114.176 1024 64 958.528 64 877.696V146.304C64 65.472 114.176 0 176 0H640z m0 128H192v768h640V320h-192V128z">
+    </path>
+   </symbol>
+   <symbol id="outline-icon-hash" viewbox="0 0 24 24">
+    <path d="M14.216 10l-0.444 4h-3.988l0.444-4zM15.006 2.89l-0.568 5.11h-3.988l0.543-4.89c0.061-0.549-0.335-1.043-0.883-1.104s-1.043 0.335-1.104 0.884l-0.568 5.11h-4.438c-0.552 0-1 0.448-1 1s0.448 1 1 1h4.216l-0.444 4h-3.772c-0.552 0-1 0.448-1 1s0.448 1 1 1h3.549l-0.543 4.89c-0.061 0.549 0.335 1.043 0.883 1.104s1.043-0.335 1.104-0.883l0.569-5.111h3.988l-0.543 4.89c-0.061 0.549 0.335 1.043 0.883 1.104s1.043-0.335 1.104-0.883l0.568-5.111h4.438c0.552 0 1-0.448 1-1s-0.448-1-1-1h-4.216l0.444-4h3.772c0.552 0 1-0.448 1-1s-0.448-1-1-1h-3.549l0.543-4.89c0.061-0.549-0.335-1.043-0.883-1.104s-1.043 0.335-1.104 0.883z">
+    </path>
+   </symbol>
+   <symbol id="outline-icon-close" viewbox="0 0 1024 1024">
+    <path d="M536.96 491.648L310.592 265.344a32 32 0 1 0-45.248 45.248L491.584 536.96l-226.304 226.304a32 32 0 0 0 45.312 45.248l226.24-226.304 226.304 226.304a32 32 0 0 0 45.248-45.248L582.144 536.896l226.304-226.24a32 32 0 0 0-45.248-45.248L536.896 491.584z">
+    </path>
+   </symbol>
+   <symbol id="outline-icon-homepage" viewbox="0 0 26 28">
+    <path d="M22 15.5v7.5c0 0.547-0.453 1-1 1h-6v-6h-4v6h-6c-0.547 0-1-0.453-1-1v-7.5c0-0.031 0.016-0.063 0.016-0.094l8.984-7.406 8.984 7.406c0.016 0.031 0.016 0.063 0.016 0.094zM25.484 14.422l-0.969 1.156c-0.078 0.094-0.203 0.156-0.328 0.172h-0.047c-0.125 0-0.234-0.031-0.328-0.109l-10.813-9.016-10.813 9.016c-0.109 0.078-0.234 0.125-0.375 0.109-0.125-0.016-0.25-0.078-0.328-0.172l-0.969-1.156c-0.172-0.203-0.141-0.531 0.063-0.703l11.234-9.359c0.656-0.547 1.719-0.547 2.375 0l3.813 3.187v-3.047c0-0.281 0.219-0.5 0.5-0.5h3c0.281 0 0.5 0.219 0.5 0.5v6.375l3.422 2.844c0.203 0.172 0.234 0.5 0.063 0.703z">
+    </path>
+   </symbol>
+   <symbol id="outline-icon-github" viewbox="0 0 24 28">
+    <path d="M12 2c6.625 0 12 5.375 12 12 0 5.297-3.437 9.797-8.203 11.391-0.609 0.109-0.828-0.266-0.828-0.578 0-0.391 0.016-1.687 0.016-3.297 0-1.125-0.375-1.844-0.812-2.219 2.672-0.297 5.484-1.313 5.484-5.922 0-1.313-0.469-2.375-1.234-3.219 0.125-0.313 0.531-1.531-0.125-3.187-1-0.313-3.297 1.234-3.297 1.234-0.953-0.266-1.984-0.406-3-0.406s-2.047 0.141-3 0.406c0 0-2.297-1.547-3.297-1.234-0.656 1.656-0.25 2.875-0.125 3.187-0.766 0.844-1.234 1.906-1.234 3.219 0 4.594 2.797 5.625 5.469 5.922-0.344 0.313-0.656 0.844-0.766 1.609-0.688 0.313-2.438 0.844-3.484-1-0.656-1.141-1.844-1.234-1.844-1.234-1.172-0.016-0.078 0.734-0.078 0.734 0.781 0.359 1.328 1.75 1.328 1.75 0.703 2.141 4.047 1.422 4.047 1.422 0 1 0.016 1.937 0.016 2.234 0 0.313-0.219 0.688-0.828 0.578-4.766-1.594-8.203-6.094-8.203-11.391 0-6.625 5.375-12 12-12zM4.547 19.234c0.031-0.063-0.016-0.141-0.109-0.187-0.094-0.031-0.172-0.016-0.203 0.031-0.031 0.063 0.016 0.141 0.109 0.187 0.078 0.047 0.172 0.031 0.203-0.031zM5.031 19.766c0.063-0.047 0.047-0.156-0.031-0.25-0.078-0.078-0.187-0.109-0.25-0.047-0.063 0.047-0.047 0.156 0.031 0.25 0.078 0.078 0.187 0.109 0.25 0.047zM5.5 20.469c0.078-0.063 0.078-0.187 0-0.297-0.063-0.109-0.187-0.156-0.266-0.094-0.078 0.047-0.078 0.172 0 0.281s0.203 0.156 0.266 0.109zM6.156 21.125c0.063-0.063 0.031-0.203-0.063-0.297-0.109-0.109-0.25-0.125-0.313-0.047-0.078 0.063-0.047 0.203 0.063 0.297 0.109 0.109 0.25 0.125 0.313 0.047zM7.047 21.516c0.031-0.094-0.063-0.203-0.203-0.25-0.125-0.031-0.266 0.016-0.297 0.109s0.063 0.203 0.203 0.234c0.125 0.047 0.266 0 0.297-0.094zM8.031 21.594c0-0.109-0.125-0.187-0.266-0.172-0.141 0-0.25 0.078-0.25 0.172 0 0.109 0.109 0.187 0.266 0.172 0.141 0 0.25-0.078 0.25-0.172zM8.937 21.438c-0.016-0.094-0.141-0.156-0.281-0.141-0.141 0.031-0.234 0.125-0.219 0.234 0.016 0.094 0.141 0.156 0.281 0.125s0.234-0.125 0.219-0.219z">
+    </path>
+   </symbol>
+   <symbol id="outline-icon-issues" viewbox="0 0 24 28">
+    <path d="M25.5 15c0 0.547-0.453 1-1 1h-3.5c0 1.953-0.422 3.422-1.047 4.531l3.25 3.266c0.391 0.391 0.391 1.016 0 1.406-0.187 0.203-0.453 0.297-0.703 0.297s-0.516-0.094-0.703-0.297l-3.094-3.078s-2.047 1.875-4.703 1.875v-14h-2v14c-2.828 0-4.891-2.063-4.891-2.063l-2.859 3.234c-0.203 0.219-0.469 0.328-0.75 0.328-0.234 0-0.469-0.078-0.672-0.25-0.406-0.375-0.438-1-0.078-1.422l3.156-3.547c-0.547-1.078-0.906-2.469-0.906-4.281h-3.5c-0.547 0-1-0.453-1-1s0.453-1 1-1h3.5v-4.594l-2.703-2.703c-0.391-0.391-0.391-1.016 0-1.406s1.016-0.391 1.406 0l2.703 2.703h13.188l2.703-2.703c0.391-0.391 1.016-0.391 1.406 0s0.391 1.016 0 1.406l-2.703 2.703v4.594h3.5c0.547 0 1 0.453 1 1zM18 6h-10c0-2.766 2.234-5 5-5s5 2.234 5 5z">
+    </path>
+   </symbol>
+   <symbol id="outline-icon-tags" viewbox="0 0 26 28">
+    <path d="M7 7c0-1.109-0.891-2-2-2s-2 0.891-2 2 0.891 2 2 2 2-0.891 2-2zM23.672 16c0 0.531-0.219 1.047-0.578 1.406l-7.672 7.688c-0.375 0.359-0.891 0.578-1.422 0.578s-1.047-0.219-1.406-0.578l-11.172-11.188c-0.797-0.781-1.422-2.297-1.422-3.406v-6.5c0-1.094 0.906-2 2-2h6.5c1.109 0 2.625 0.625 3.422 1.422l11.172 11.156c0.359 0.375 0.578 0.891 0.578 1.422zM29.672 16c0 0.531-0.219 1.047-0.578 1.406l-7.672 7.688c-0.375 0.359-0.891 0.578-1.422 0.578-0.812 0-1.219-0.375-1.75-0.922l7.344-7.344c0.359-0.359 0.578-0.875 0.578-1.406s-0.219-1.047-0.578-1.422l-11.172-11.156c-0.797-0.797-2.312-1.422-3.422-1.422h3.5c1.109 0 2.625 0.625 3.422 1.422l11.172 11.156c0.359 0.375 0.578 0.891 0.578 1.422z">
+    </path>
+   </symbol>
+   <symbol id="outline-icon-print" viewbox="0 0 24 24">
+    <path d="M18 3v3.984h-12v-3.984h12zM18.984 12q0.422 0 0.727-0.281t0.305-0.703-0.305-0.727-0.727-0.305-0.703 0.305-0.281 0.727 0.281 0.703 0.703 0.281zM15.984 18.984v-4.969h-7.969v4.969h7.969zM18.984 8.016q1.219 0 2.109 0.891t0.891 2.109v6h-3.984v3.984h-12v-3.984h-3.984v-6q0-1.219 0.891-2.109t2.109-0.891h13.969z">
+    </path>
+   </symbol>
+   <symbol id="outline-icon-info" viewbox="0 0 1024 1024">
+    <path d="M512 384.295982a95.994 95.994 0 0 1 95.994 95.994V928.006a95.994 95.994 0 0 1-191.988 0V480.289982a95.994 95.994 0 0 1 95.994-95.994z m0-128.375977A127.992 127.992 0 1 1 512 0.063996a127.992 127.992 0 0 1 0 255.984001z">
+    </path>
+   </symbol>
+   <symbol id="outline-icon-warning" viewbox="0 0 1024 1024">
+    <path d="M512 639.704018a95.994 95.994 0 0 1-95.994-95.994V95.994a95.994 95.994 0 0 1 191.988 0v447.716018a95.994 95.994 0 0 1-95.994 95.994z m0 128.375977A127.992 127.992 0 1 1 512 1023.936004a127.992 127.992 0 0 1 0-255.984001z">
+    </path>
+   </symbol>
+   <symbol id="outline-icon-error" viewbox="0 0 1024 1024">
+    <path d="M512.64 376.96L263.744 128 128 263.744l248.96 248.96L128 761.472l135.744 135.808 248.96-248.96 248.832 248.96 135.808-135.808-248.96-248.896 248.96-248.896L761.536 128 512.64 376.96z">
+    </path>
+   </symbol>
+   <symbol id="outline-icon-success" viewbox="0 0 1024 1024">
+    <path d="M426.368 580.864l-226.56-226.56L64 489.984l362.048 362.112 0.32-0.32 0.32 0.32 588.288-588.352L879.36 128 426.304 580.864z">
+    </path>
+   </symbol>
+   <symbol id="outline-icon-circle-info" viewbox="0 0 1024 1024">
+    <path d="M512 810.666667s-42.666667 4.266667-42.666667-42.666667v-341.333333c0-46.933333 42.666667-42.666667 42.666667-42.666667s42.666667-4.266667 42.666667 42.666667v341.333333c0 46.933333-42.666667 42.666667-42.666667 42.666667z m0 213.333333C228.949333 1024 0 795.050667 0 512S228.949333 0 512 0s512 228.949333 512 512-229.674667 512-512 512z m0-938.666667C276.608 85.333333 85.333333 276.608 85.333333 512s191.274667 426.666667 426.666667 426.666667 426.666667-191.274667 426.666667-426.666667S747.392 85.333333 512 85.333333z m0 213.333334c-23.466667 0-42.666667-19.2-42.666667-42.666667s19.2-42.666667 42.666667-42.666667 42.666667 19.2 42.666667 42.666667-19.2 42.666667-42.666667 42.666667z">
+    </path>
+   </symbol>
+   <symbol id="outline-icon-circle-warning" viewbox="0 0 1024 1024">
+    <path d="M512 213.333333s-42.666667-4.266667-42.666667 42.666667v341.333333c0 46.933333 42.666667 42.666667 42.666667 42.666667s42.666667 4.266667 42.666667-42.666667V256c0-46.933333-42.666667-42.666667-42.666667-42.666667z m0-213.333333C228.949333 0 0 228.949333 0 512s228.949333 512 512 512 512-228.949333 512-512S794.325333 0 512 0z m0 938.666667C276.608 938.666667 85.333333 747.392 85.333333 512S276.608 85.333333 512 85.333333s426.666667 191.274667 426.666667 426.666667-191.274667 426.666667-426.666667 426.666667z m0-213.333334c-23.466667 0-42.666667 19.2-42.666667 42.666667s19.2 42.666667 42.666667 42.666667 42.666667-19.2 42.666667-42.666667-19.2-42.666667-42.666667-42.666667z">
+    </path>
+   </symbol>
+   <symbol id="outline-icon-circle-error" viewbox="0 0 1024 1024">
+    <path d="M512 0a512 512 0 1 0 512 512 512 512 0 0 0-512-512z m0 955.776A443.84 443.84 0 0 1 512 68.224a443.904 443.904 0 0 1 0 887.552z">
+    </path>
+    <path d="M641.664 326.144a32 32 0 0 1 50.304 39.168l-3.52 4.48-306.112 328.064a32 32 0 0 1-50.304-39.168l3.52-4.48 306.112-328.064z">
+    </path>
+    <path d="M324.608 337.088a32 32 0 0 1 40.704-5.12l4.48 3.584 328.064 306.112a32 32 0 0 1-39.168 50.304l-4.48-3.52-328.064-306.112a32 32 0 0 1-1.536-45.248z">
+    </path>
+   </symbol>
+   <symbol id="outline-icon-circle-success" viewbox="0 0 1024 1024">
+    <path d="M512 0C228.949333 0 0 228.949333 0 512s228.949333 512 512 512 512-228.949333 512-512S794.325333 0 512 0z m0 950.869333C269.909333 950.869333 73.130667 754.090667 73.130667 512 73.130667 269.909333 269.909333 73.130667 512 73.130667c242.090667 0 438.869333 196.778667 438.869333 438.869333 0 242.090667-196.778667 438.869333-438.869333 438.869333z">
+    </path>
+    <path d="M737.834667 353.834667a42.666667 42.666667 0 0 1 63.872 56.32l-3.541334 4.010666L486.997333 725.333333a85.333333 85.333333 0 0 1-115.242666 4.992L366.336 725.333333l-140.501333-140.501333a42.666667 42.666667 0 0 1 56.32-63.872l4.010666 3.541333L426.666667 665.002667l311.168-311.168z">
+    </path>
+   </symbol>
+   <symbol id="outline-icon-sound" viewbox="0 0 16 16">
+    <path d="M12.757 4.708c-0.406 0.405-1.062 0.405-1.468 0s-0.405-1.062 0-1.468l2.935-2.935c0.406-0.405 1.062-0.405 1.468 0 0.405 0.405 0.405 1.062 0 1.468l-2.935 2.935zM7.996 15.991l-3.996-3.996h-2.997c-0.552 0-0.999-0.447-0.999-0.999v-5.994c0-0.552 0.447-0.999 0.999-0.999h2.997l3.996-3.996c0 0 0.999-0.125 0.999 0.999 0 5.976 0 14.966 0 13.985 0 1.124-0.999 0.999-0.999 0.999zM6.997 4.004l-1.998 1.998h-2.997v3.996h2.997l1.998 1.998v-7.992zM11.992 8.999c-0.552 0-0.999-0.447-0.999-0.999s0.447-0.999 0.999-0.999h2.997c0.552 0 0.999 0.447 0.999 0.999s-0.447 0.999-0.999 0.999h-2.997zM12.757 11.292l2.935 2.935c0.405 0.406 0.405 1.063 0 1.468s-1.062 0.405-1.468 0l-2.935-2.935c-0.405-0.406-0.405-1.063 0-1.468s1.062-0.405 1.468 0z">
+    </path>
+   </symbol>
+  </svg>
+  <header class="uk-background-secondary uk-background-norepeat uk-background-cover uk-background-center-center uk-light">
+   <nav class="uk-navbar-container">
+    <div class="uk-container">
+     <div class="uk-navbar" data-uk-navbar="">
+      <div class="uk-navbar-center">
+       <a class="uk-navbar-item uk-logo" href="https://news.shuaiseng.com/">
+        新闻
+       </a>
+      </div>
+     </div>
+    </div>
+   </nav>
+   <div class="uk-section uk-section-small uk-section-hero uk-position-relative uk-scrollspy-inview uk-animation-slide-bottom-medium" data-uk-scrollspy="cls: uk-animation-slide-bottom-medium; repeat: false" style="">
+    <div class="uk-container">
+     <h1 class="uk-text-center uk-margin-remove-top">
+      帅僧官方的新闻站点
+     </h1>
+     <div class="hero-search uk-margin-bottom">
+      <div class="uk-position-relative">
+       <form class="uk-search uk-search-default" name="searchCompleteForm" onsubmit="return false;">
+        <span class="uk-icon uk-search-icon" data-uk-search-icon="ratio: 1.2">
+         <svg data-svg="search-icon" height="24" viewbox="0 0 20 20" width="24" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9" cy="9" fill="none" r="7" stroke="#000" stroke-width="1.1">
+          </circle>
+          <path d="M14,14 L18,18 L14,14 Z" fill="none" stroke="#000" stroke-width="1.1">
+          </path>
+         </svg>
+        </span>
+        <div aria-expanded="false" aria-haspopup="true" aria-owns="autoComplete_list_1" class="autoComplete_wrapper" role="combobox">
+         <input aria-autocomplete="both" aria-controls="autoComplete_list_1" autocapitalize="off" autocomplete="off" autocorrect="off" class="uk-search-input uk-form-large uk-border-rounded" data-maxitems="30" data-minchars="1" id="searchComplete" maxlength="2048" placeholder="输入关键词进行实时搜索" spellcheck="false" tabindex="1" type="search"/>
+         <ul hidden="" id="autoComplete_list_1" role="listbox">
+         </ul>
+        </div>
+       </form>
+      </div>
+     </div>
+    </div>
    </div>
-   <div class="item_circle circle-2">
-   </div>
-   <div class="item_circle circle-3">
-   </div>
-   <div class="item_circle circle-4">
-   </div>
-   <div class="loader_bo">
-    FarCDN WAF
+  </header>
+  <div class="uk-section uk-section-muted">
+   <div class="uk-container">
+    <h2 class="bdnewui_index_section-title">
+     帮助分类
+    </h2>
+    <div class="bdnewui_index_category-grid">
+     <div class="bdnewui_index_category-item">
+      <div class="bdnewui_index_category-content">
+       <div class="bdnewui_index_item-header">
+        <div class="bdnewui_index_item-header-icon">
+         <span class="uk-icon" uk-icon="icon: cog; ratio: 1.8">
+          <svg data-svg="cog" height="36" viewbox="0 0 20 20" width="36" xmlns="http://www.w3.org/2000/svg">
+           <circle cx="9.997" cy="10" fill="none" r="3.31" stroke="#000">
+           </circle>
+           <path d="M18.488,12.285 L16.205,16.237 C15.322,15.496 14.185,15.281 13.303,15.791 C12.428,16.289 12.047,17.373 12.246,18.5 L7.735,18.5 C7.938,17.374 7.553,16.299 6.684,15.791 C5.801,15.27 4.655,15.492 3.773,16.237 L1.5,12.285 C2.573,11.871 3.317,10.999 3.317,9.991 C3.305,8.98 2.573,8.121 1.5,7.716 L3.765,3.784 C4.645,4.516 5.794,4.738 6.687,4.232 C7.555,3.722 7.939,2.637 7.735,1.5 L12.263,1.5 C12.072,2.637 12.441,3.71 13.314,4.22 C14.206,4.73 15.343,4.516 16.225,3.794 L18.487,7.714 C17.404,8.117 16.661,8.988 16.67,10.009 C16.672,11.018 17.415,11.88 18.488,12.285 L18.488,12.285 Z" fill="none" stroke="#000">
+           </path>
+          </svg>
+         </span>
+        </div>
+        <div class="bdnewui_index_item-header-content">
+         <h3 class="bdnewui_index_category-name">
+          公告
+         </h3>
+         <span class="bdnewui_index_category-desc">
+          帅僧官方发布的权威公告
+         </span>
+         <span class="bdnewui_index_article-count">
+          3篇文章
+         </span>
+        </div>
+       </div>
+       <div class="bdnewui_index_articles-panel">
+        <ul class="bdnewui_index_article-list">
+         <li>
+          帅僧的全新logo（暂定版）现已启用
+         </li>
+         <li>
+          帅僧新闻官方 Telegram 频道现已上线
+         </li>
+         <li>
+          帅僧官方新闻发布站现已上线
+         </li>
+        </ul>
+        <a class="bdnewui_index_view-all-btn" href="https://news.shuaiseng.com/index.php/category/gg/">
+         查看全部
+        </a>
+       </div>
+      </div>
+     </div>
+     <div class="bdnewui_index_category-item">
+      <div class="bdnewui_index_category-content">
+       <div class="bdnewui_index_item-header">
+        <div class="bdnewui_index_item-header-icon">
+         <span class="uk-icon" uk-icon="icon: cog; ratio: 1.8">
+          <svg data-svg="cog" height="36" viewbox="0 0 20 20" width="36" xmlns="http://www.w3.org/2000/svg">
+           <circle cx="9.997" cy="10" fill="none" r="3.31" stroke="#000">
+           </circle>
+           <path d="M18.488,12.285 L16.205,16.237 C15.322,15.496 14.185,15.281 13.303,15.791 C12.428,16.289 12.047,17.373 12.246,18.5 L7.735,18.5 C7.938,17.374 7.553,16.299 6.684,15.791 C5.801,15.27 4.655,15.492 3.773,16.237 L1.5,12.285 C2.573,11.871 3.317,10.999 3.317,9.991 C3.305,8.98 2.573,8.121 1.5,7.716 L3.765,3.784 C4.645,4.516 5.794,4.738 6.687,4.232 C7.555,3.722 7.939,2.637 7.735,1.5 L12.263,1.5 C12.072,2.637 12.441,3.71 13.314,4.22 C14.206,4.73 15.343,4.516 16.225,3.794 L18.487,7.714 C17.404,8.117 16.661,8.988 16.67,10.009 C16.672,11.018 17.415,11.88 18.488,12.285 L18.488,12.285 Z" fill="none" stroke="#000">
+           </path>
+          </svg>
+         </span>
+        </div>
+        <div class="bdnewui_index_item-header-content">
+         <h3 class="bdnewui_index_category-name">
+          新闻
+         </h3>
+         <span class="bdnewui_index_category-desc">
+          帅僧官方发布的宣传新闻
+         </span>
+         <span class="bdnewui_index_article-count">
+          1篇文章
+         </span>
+        </div>
+       </div>
+       <div class="bdnewui_index_articles-panel">
+        <ul class="bdnewui_index_article-list">
+         开学摆烂党速救！这个效率神器公测了，现在注册直接锁定老用户福利！
+        </ul>
+        <a class="bdnewui_index_view-all-btn" href="https://news.shuaiseng.com/index.php/category/xinwen/">
+         查看全部
+        </a>
+       </div>
+      </div>
+     </div>
+     <div class="bdnewui_index_category-item">
+      <div class="bdnewui_index_category-content">
+       <div class="bdnewui_index_item-header">
+        <div class="bdnewui_index_item-header-icon">
+         <span class="uk-icon" uk-icon="icon: cog; ratio: 1.8">
+          <svg data-svg="cog" height="36" viewbox="0 0 20 20" width="36" xmlns="http://www.w3.org/2000/svg">
+           <circle cx="9.997" cy="10" fill="none" r="3.31" stroke="#000">
+           </circle>
+           <path d="M18.488,12.285 L16.205,16.237 C15.322,15.496 14.185,15.281 13.303,15.791 C12.428,16.289 12.047,17.373 12.246,18.5 L7.735,18.5 C7.938,17.374 7.553,16.299 6.684,15.791 C5.801,15.27 4.655,15.492 3.773,16.237 L1.5,12.285 C2.573,11.871 3.317,10.999 3.317,9.991 C3.305,8.98 2.573,8.121 1.5,7.716 L3.765,3.784 C4.645,4.516 5.794,4.738 6.687,4.232 C7.555,3.722 7.939,2.637 7.735,1.5 L12.263,1.5 C12.072,2.637 12.441,3.71 13.314,4.22 C14.206,4.73 15.343,4.516 16.225,3.794 L18.487,7.714 C17.404,8.117 16.661,8.988 16.67,10.009 C16.672,11.018 17.415,11.88 18.488,12.285 L18.488,12.285 Z" fill="none" stroke="#000">
+           </path>
+          </svg>
+         </span>
+        </div>
+        <div class="bdnewui_index_item-header-content">
+         <h3 class="bdnewui_index_category-name">
+          使用教程
+         </h3>
+         <span class="bdnewui_index_category-desc">
+          有关帅僧的使用教程
+         </span>
+         <span class="bdnewui_index_article-count">
+          0篇文章
+         </span>
+        </div>
+       </div>
+       <div class="bdnewui_index_articles-panel">
+        <div class="bdnewui_index_no-articles">
+         当前分类暂无帮助文章
+        </div>
+        <a class="bdnewui_index_view-all-btn" href="https://news.shuaiseng.com/index.php/category/course/">
+         查看全部
+        </a>
+       </div>
+      </div>
+     </div>
+     <div class="bdnewui_index_category-item">
+      <div class="bdnewui_index_category-content">
+       <div class="bdnewui_index_item-header">
+        <div class="bdnewui_index_item-header-icon">
+         <span class="uk-icon" uk-icon="icon: cog; ratio: 1.8">
+          <svg data-svg="cog" height="36" viewbox="0 0 20 20" width="36" xmlns="http://www.w3.org/2000/svg">
+           <circle cx="9.997" cy="10" fill="none" r="3.31" stroke="#000">
+           </circle>
+           <path d="M18.488,12.285 L16.205,16.237 C15.322,15.496 14.185,15.281 13.303,15.791 C12.428,16.289 12.047,17.373 12.246,18.5 L7.735,18.5 C7.938,17.374 7.553,16.299 6.684,15.791 C5.801,15.27 4.655,15.492 3.773,16.237 L1.5,12.285 C2.573,11.871 3.317,10.999 3.317,9.991 C3.305,8.98 2.573,8.121 1.5,7.716 L3.765,3.784 C4.645,4.516 5.794,4.738 6.687,4.232 C7.555,3.722 7.939,2.637 7.735,1.5 L12.263,1.5 C12.072,2.637 12.441,3.71 13.314,4.22 C14.206,4.73 15.343,4.516 16.225,3.794 L18.487,7.714 C17.404,8.117 16.661,8.988 16.67,10.009 C16.672,11.018 17.415,11.88 18.488,12.285 L18.488,12.285 Z" fill="none" stroke="#000">
+           </path>
+          </svg>
+         </span>
+        </div>
+        <div class="bdnewui_index_item-header-content">
+         <h3 class="bdnewui_index_category-name">
+          用户协议
+         </h3>
+         <span class="bdnewui_index_category-desc">
+          我们最新的用户协议、服务条款等
+         </span>
+         <span class="bdnewui_index_article-count">
+          2篇文章
+         </span>
+        </div>
+       </div>
+       <div class="bdnewui_index_articles-panel">
+        <ul class="bdnewui_index_article-list">
+         <li>
+          帅僧 Progress 隐私政策
+         </li>
+         <li>
+          帅僧 Progress 用户服务协议
+         </li>
+        </ul>
+        <a class="bdnewui_index_view-all-btn" href="https://news.shuaiseng.com/index.php/category/xieyi/">
+         查看全部
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
    </div>
   </div>
-  <!-- 加载页面 结束 -->
-  <div id="page">
-   <!-- oops区块 错误的具体提示位置 开始 -->
-   <div id="oops">
-    <div class="textbox">
-     <div id="optx">
-      <div id="main">
-       <div class="fof">
-        <h1>
-         Error 502
-        </h1>
-        <img alt="FarCDN" src="https://farcdn.net/www/otimg/farcdn_lan_chang.png"/>
-       </div>
-      </div>
-     </div>
-     <p class="text1">
-      <span>
-       Oops!
-      </span>
-      源站读取失败
-     </p>
-     <p class="text2">
-      原因：无法连接到源站服务器，请联系网站管理员。
-     </p>
-     <p class="text3">
-      ✨前往FarCDN博客看看 ↓
-     </p>
-     <form>
-      <button class="blue-button" onclick="openblogLink(event)">
-       前往FarCDN博客
-      </button>
-     </form>
-    </div>
-   </div>
-   <!-- oops区块 结束 -->
-   <div id="netinfo">
-    <div class="nodeArea nd1">
-     <div class="lightGo">
-      <div class="spinner-eff nodes">
-       <div class="node node-1">
-       </div>
-       <div class="node node-2">
-       </div>
-       <div class="node node-3">
-       </div>
-      </div>
-     </div>
-     <p>
-      用户浏览器/网络
-     </p>
-     <p>
-      正常
-     </p>
-    </div>
-    <div class="nodeArea nd2">
-     <div class="lightGo">
-      <div class="spinner-eff nodes">
-       <div class="node node-1">
-       </div>
-       <div class="node node-2">
-       </div>
-       <div class="node node-3">
-       </div>
-      </div>
-     </div>
-     <p>
-      FarCDN节点
-     </p>
-     <p>
-      正常
-     </p>
-    </div>
-    <div class="nodeArea nd3">
-     <div class="lightGo">
-      <div class="spinner-eff nodes">
-       <div class="node node-10">
-       </div>
-       <div class="node node-20">
-       </div>
-       <div class="node node-30">
-       </div>
-      </div>
-     </div>
-     <p>
-      源站错误
-     </p>
-     <p>
-      无法连接
-     </p>
-    </div>
-   </div>
-   <div class="botton_a">
-    <span id="dunform">
-     Security by   
-     <a href="https://farcdn.net" rel="noopener noreferrer" target="_blank">
-      FarCDN
+  <a class="uk-icon uk-totop" href="#" id="gotop" style="display: none;" uk-scroll="" uk-totop="">
+   <svg data-svg="totop" height="10" viewbox="0 0 18 10" width="18" xmlns="http://www.w3.org/2000/svg">
+    <polyline fill="none" points="1 9 9 1 17 9 " stroke="#000" stroke-width="1.2">
+    </polyline>
+   </svg>
+  </a>
+  <footer class="uk-section-small uk-text-center uk-text-muted">
+   <div class="uk-container">
+    <div class="uk-margin-medium uk-text-small uk-link-primary">
+     © 2025
+     <a href="https://news.shuaiseng.com/">
+      新闻
      </a>
-    </span>
+     All right Reserved.
+     <br/>
+     Powered by
+     <a href="http://www.typecho.org">
+      Typecho
+     </a>
+     &
+     <a href="https://github.com/whitebearcode/typecho-beardocs">
+      BearDocs
+     </a>
+     <br/>
+    </div>
    </div>
-   <p class="requestnews">
-    <span>
-     你的 IP: 172.214.44.52
-    </span>
-    <br/>
-    <span>
-     请求 ID: 1758319766218701000002
-    </span>
-   </p>
-  </div>
+  </footer>
+  <script type="text/javascript">
+   if (!window.prismLoaded) { window.prismLoaded = true; var script = document.createElement('script'); script.src = 'https://news.shuaiseng.com/usr/themes/beardocs/assets/plugins/codehightlight/prism.js'; script.onload = initPrism; document.head.appendChild(script); } else if (window.Prism) { initPrism(); } function initPrism() { const showLineNumber = true; const preElements = document.querySelectorAll('pre'); preElements.forEach(pre => { let code = pre.querySelector('code'); if (!code) return; const hasLanguageClass = pre.className.match(/\blanguage-\w+\b/) || code.className.match(/\blanguage-\w+\b/); if (!hasLanguageClass) { pre.classList.add('language-plaintext'); } pre.className = pre.className.replace(/\b(line-numbers)\b/g, '').trim(); if (showLineNumber) { pre.classList.add('line-numbers'); } pre.classList.add('prism'); code.classList.add('prism'); }); if (typeof Prism !== 'undefined') { Prism.highlightAll(); } }
+  </script>
+  <script src="https://news.shuaiseng.com/usr/themes/beardocs/assets/plugins/fancybox/fancybox.umd.min.js">
+  </script>
+  <script src="https://news.shuaiseng.com/usr/themes/beardocs/assets/plugins/autocomplete/autoComplete.min.js">
+  </script>
+  <script src="https://news.shuaiseng.com/usr/themes/beardocs/assets/plugins/menutree/menutree.min.js?v=1.1.3.20250814">
+  </script>
+  <script src="https://news.shuaiseng.com/usr/themes/beardocs/assets/js/pangu.min.js">
+  </script>
+  <script src="https://news.shuaiseng.com/usr/themes/beardocs/assets/plugins/lazyload/funlazy.min.js">
+  </script>
+  <script src="https://news.shuaiseng.com/usr/themes/beardocs/assets/js/beardocs.js?v=1.1.3.20250814">
+  </script>
+  <script src="https://news.shuaiseng.com/usr/themes/beardocs/assets/plugins/instant.page/instantpage.min.js">
+  </script>
  </body>
 </html>
